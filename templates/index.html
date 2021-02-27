@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>HomePage</title>
+    </head>
+    <body>
+        <form action="{{ url_for('StoreDataToGSheet')}}" method="post" class="form-example">
+
+            <label for="first_name">enter your first name: </label>
+            <input type="text" name="first_name" id="first_name" required>
+            <br>
+            <label for="last_name">enter your last name: </label>
+            <input type="text" name="last_name" id="last_name" required>
+
+            <br><br>
+
+            <div id="gulab">
+                <p>Gulab Aggarbatti. Price: 20 Rs 50 gm. 100 Rs 250 gm</p>
+
+                <label for="units">50gm enter the units: </label>
+                <input type="number" name="gulab_units_50_gm" id="gulab_units_50_gm" min="0">
+                
+                <br>
+
+                <label for="units">250gm enter the units: </label>
+                <input type="number" name="gulab_units_250_gm" id="gulab_units_250_gm" min="0">
+                <br>
+            </div>
+
+            <br>
+
+            <div id="sonchafa">
+                <p>Sonchafa Aggarbatti. Price: 20 Rs 50 gm. 100 Rs 250 gm</p>
+            
+                <label for="units">50gm enter the units: </label>
+                <input type="number" name="sonchafa_units_50_gm" id="sonchafa_units_50_gm" min="0">
+
+                <br>
+                
+                <label for="units">250gm enter the units: </label>
+                <input type="number" name="sonchafa_units_250_gm" id="sonchafa_units_250_gm" min="0">
+            </div>
+
+            <br>
+
+            <div id="mogra">
+                <p>Mogra Aggarbatti. Price: 20 Rs 50 gm. 100 Rs 250 gm</p>
+                
+                <label for="units">50gm enter the units: </label>
+                <input type="number" name="mogra_units_50_gm" id="mogra_units_50_gm" min="0">
+                
+                <br>
+                
+                <label for="units">250gm enter the units: </label>
+                <input type="number" name="mogra_units_250_gm" id="sonchafa_units_50_gm" min="0">
+            </div>    
+
+            <br><br>
+
+            <div id="communication_details">
+                <label for="mobile_number">enter your mobile number: </label>
+                <input type="text" name="mobile_number" id="mobile_number" required>
+                
+                <br>
+
+                <label for="email_address">enter your email address: </label>
+                <input type="text" name="email_address" id="email_address" required>
+            </div>
+            
+            <br><br>
+
+            <div id="home_delivery_choices">
+                <p>Do you wish to have this order to be courired to you?</p>
+                <p>Note: Home delivery charges will be applicable as an extra amount over the total amount</p>
+
+                <input type="radio" id="home_delivery_option" name="home_delivery_option" value="Yes">
+                <label for="home_delivery_option">Yes</label>
+                
+                <br>
+
+                <input type="radio" id="home_delivery_option" name="home_delivery_option" value="No">
+                <label for="home_delivery_option">No</label>
+                
+                <br>
+
+                <label for="shipping_address">enter your shipping address: </label>
+                <input type="text" name="shipping_address" id="shipping_address">
+            </div>
+            
+            <br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
