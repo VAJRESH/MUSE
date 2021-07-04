@@ -1,0 +1,222 @@
+*, html {
+    margin:0;
+    padding:0;  
+    scroll-behavior: smooth;
+}
+
+
+/* .navColor{
+    background-color: #990099;
+} */
+
+
+.navContentText{
+    color: #ff99e6;
+}
+
+@media only screen and (max-width: 600px) {
+    .resp {
+       font-size: 12px;
+    }
+
+    .respHead{
+        font-size: 30px;
+    }
+  }
+
+@media(max-width:580px){
+    .respText{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width:400px){
+    .resp{
+       font-size: 10px;
+    }
+
+    .respHead{
+        font-size: 25px;
+    }
+}
+
+@media(min-width:1000px){
+    .respSlider{
+        height: 33vw;
+    }
+}
+
+@media(max-width:1000px){
+    .respSlider{
+        height: 60vw;
+    }
+}
+
+.vl {
+    border-left: 1px solid black;
+    height: 100px;
+  }
+
+  input[type=password], input[type=number],  input[type=tel], input[type=email], textarea, .text {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+ input[type=password]:focus, input[type=email]:focus, input[type=number]:focus,input[type=tel]:focus, textarea, .text:focus{
+    background-color: #ddd;
+    outline: none;
+  }
+
+  .cool-link {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+}
+
+.cool-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width .3s;
+}
+
+.cool-link:hover::after {
+    width: 100%;
+}
+
+
+hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.active-link{
+    -webkit-transition: box-shadow 0.5s 0s ease-in-out;
+    transition: background-color 1s ease-in-out;
+    background-color: orange;
+    padding: 10px;
+    border-radius: 20px;
+    
+
+     
+}
+
+.btn-text{
+    font-size: 13px;
+}
+
+/*Social media icons*/
+.icon {
+    padding: 8px;
+    font-size: 21px;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    
+    }
+    
+    .icon:hover {
+    opacity: 1
+    }
+    
+
+    /* Twitter */
+    .fa-twitter {
+    background: #55ACEE;
+    color: white;
+    }
+    
+    .fa-twitter:hover{
+      color: white;
+      background: #66b3ff;
+      opacity: 0.9;
+    }
+    
+    /* Instagram */
+    .fa-instagram{
+    background: #8a3ab9;
+    color: white;
+    }
+    
+    .fa-instagram:hover{
+      color: white;
+      background:#c61aff;
+      opacity: 0.9;
+    }
+    
+    /* Gmail */
+    .fa-envelope{
+    background: #D44638;
+    color: white;
+    } 
+    
+    .fa-envelope:hover{
+      color: white;
+      background:#B23121;
+      opacity: 0.9;
+    }
+    
+    /*LinkedIn*/
+    .fa-linkedin{
+    background: #0e76a8;
+    color: white;
+    }
+    
+    .fa-linkedin:hover{
+      color: white;
+      background: #2867B2;
+      opacity: 0.9;
+    }
+
+/* Whatsapp Logo CSS */
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+    font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+    z-index:100;
+}
+
+.my-float{
+	margin-top:16px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:first-child {
+    background-color: #999;
+  }
+
+  tr:not(:first-child) {
+    background-color: #dddddd;
+}
+
+.cartInput {
+    text-align: center;
+  }
