@@ -3,12 +3,8 @@ import pandas
 from datetime import datetime as dt
 import os
 from helper_functions import TriggerOrderReceivedMessage, getWorksheetObject
-from pyngrok import ngrok
 
 app = Flask(__name__)
-
-url = ngrok.connect(5000).public_url
-print(url)
 
 @app.route('/home', methods=['GET', 'POST'])
 def DisplayProductOrderForm():
