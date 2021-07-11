@@ -10,9 +10,9 @@ app = Flask(__name__)
 url = ngrok.connect(5000).public_url
 print(url)
 
-@app.route('/order-form', methods=['GET', 'POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def DisplayProductOrderForm():
-    return render_template('index.html')
+    return render_template('muse.html')
 
 
 # @app.route('/bot', methods=['POST'])
