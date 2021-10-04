@@ -440,3 +440,4 @@ function switchSize() {
 }
 
 switchSize();
+// end of file
