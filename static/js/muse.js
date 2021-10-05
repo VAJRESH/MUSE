@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $(
-    "#mainUtnaBlock, #paintedDiyaBlock, #soapBlock, #ship, #nameVolunteer, #other, #transactionid"
+    "#mainubtanBlock, #paintedDiyaBlock, #soapBlock, #ship, #nameVolunteer, #other, #transactionid"
   ).hide();
 
   $("#agarbatti").click(function () {
@@ -8,19 +8,19 @@ $(document).ready(function () {
     $("#mainAgarbattiBlock").slideToggle();
     $("#agarbatti").toggleClass("active-link");
 
-    $("#mainUtnaBlock").slideUp();
+    $("#mainubtanBlock").slideUp();
     $("#paintedDiyaBlock").slideUp();
     $("#soapBlock").slideUp();
 
-    $("#utna").removeClass("active-link");
+    $("#ubtan").removeClass("active-link");
     $("#diya").removeClass("active-link");
     $("#soap").removeClass("active-link");
   });
 
-  $("#utna").click(function () {
+  $("#ubtan").click(function () {
     if ($(this).hasClass('active-link')) return;
-    $("#mainUtnaBlock").slideToggle();
-    $("#utna").toggleClass("active-link");
+    $("#mainubtanBlock").slideToggle();
+    $("#ubtan").toggleClass("active-link");
 
     $("#mainAgarbattiBlock").slideUp();
     $("#paintedDiyaBlock").slideUp();
@@ -37,11 +37,11 @@ $(document).ready(function () {
     $("#diya").toggleClass("active-link");
 
     $("#mainAgarbattiBlock").slideUp();
-    $("#mainUtnaBlock").slideUp();
+    $("#mainubtanBlock").slideUp();
     $("#soapBlock").slideUp();
 
     $("#agarbatti").removeClass("active-link");
-    $("#utna").removeClass("active-link");
+    $("#ubtan").removeClass("active-link");
     $("#soap").removeClass("active-link");
   });
 
@@ -51,11 +51,11 @@ $(document).ready(function () {
     $("#soap").toggleClass("active-link");
 
     $("#mainAgarbattiBlock").slideUp();
-    $("#mainUtnaBlock").slideUp();
+    $("#mainubtanBlock").slideUp();
     $("#paintedDiyaBlock").slideUp();
 
     $("#agarbatti").removeClass("active-link");
-    $("#utna").removeClass("active-link");
+    $("#ubtan").removeClass("active-link");
     $("#diya").removeClass("active-link");
   });
 
