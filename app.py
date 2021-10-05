@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/home', methods=['GET', 'POST'])
 def DisplayProductOrderForm():
-    return render_template('muse.html')
+    return render_template('index.html')
 
 
 # @app.route('/bot', methods=['POST'])
