@@ -10,6 +10,10 @@ app = Flask(__name__)
 def DisplayProductOrderForm():
     return render_template('index.html')
 
+# function to render the order summary cart
+@app.route('/cart', methods=['GET', 'POST'])
+def DisplayCart():
+    return render_template('cart.html')
 
 # @app.route('/bot', methods=['POST'])
 # def bot():
