@@ -42,7 +42,7 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-
+    
     <!--Local Files-->
     <link rel= "stylesheet" type= "text/css" href = "{{ url_for('static',filename='css/muse.css') }}">
     <script src="{{url_for('static', filename='js/muse.js')}}"></script>
@@ -51,15 +51,14 @@
   <body>
     <!-- Alert Component -->
     <div
-    style="
-      position: fixed;
-      top: 20px;
-      width: 100%;
-      z-index: 10000;
-    "
-    id="alert-component"
-  >
-    <div class="alert mx-auto" role="alert" style="display: none; width: fit-content">
+      style="position: fixed; top: 20px; width: 100%; z-index: 10000"
+      id="alert-component"
+    >
+      <div
+        class="alert mx-auto"
+        role="alert"
+        style="display: none; width: fit-content"
+      >
         <span class="alert-message">
           This is a success alert—check it out!
         </span>
@@ -82,11 +81,11 @@
       <div class="container">
         <div class="row">
           <div class="col-sm">
-            <a class="navbar-brand" href="{{ url_for('DisplayProductOrderForm') }}">
+            <a class="navbar-brand" href="{{ url_for("DisplayProductOrderForm") }}">
               <img
                 lazy-loading="true"
                 class="resp_logo"
-                src="images/FinalLogo.png"
+                src="images/header_logo.png"
                 class="img-fluid"
                 width="250"
               />
@@ -119,7 +118,7 @@
                <li class="nav-item"><a class="nav-link main" href="#contact">Contact</a></li> -->
             <ul class="navbar-nav flex-row">
               <li class="nav-item">
-                <a class="nav-link px-1" href="" target="_blank"
+                <a class="nav-link px-1" href="https://m.facebook.com/musebyvsm/" target="_blank"
                   ><span class="fa fa-facebook icon"></span
                 ></a>
               </li>
@@ -129,19 +128,19 @@
                 ></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-1" href="" target="_blank"
+                <a class="nav-link px-1" href="https://www.instagram.com/muse_vsm/" target="_blank"
                   ><span class="fa fa-instagram icon"></span
                 ></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-1" href="" target="_blank"
+                <a class="nav-link px-1" href="https://twitter.com/MUSE_VSM?s=09" target="_blank"
                   ><span class="fa fa-twitter icon"></span
                 ></a>
               </li>
               <li class="nav-item ml-3 cart">
                 <a
-                  class="nav-link px-1 cart-icon"
-                  href="{{ url_for('DisplayCart') }}"
+                  class="nav-link px-1 cart-icon text-danger"
+                  href="{{ url_for("DisplayCart") }}"
                   name="basket"
                   ><span class="fa fa-shopping-cart fa-2x"></span
                 ></a>
@@ -173,7 +172,7 @@
           <img
             lazy-loading="true"
             class="d-block w-100 respSlider"
-            src="images/muse1.jpg"
+            src="images/banner_1.JPG"
             alt="First slide"
           />
         </div>
@@ -181,7 +180,7 @@
           <img
             lazy-loading="true"
             class="d-block w-100 respSlider"
-            src="images/muse4.jpg"
+            src="images/banner_2.jpg"
             alt="Second slide"
           />
         </div>
@@ -189,7 +188,7 @@
           <img
             lazy-loading="true"
             class="d-block w-100 respSlider"
-            src="images/2.jpg"
+            src="images/banner_3.jpg"
             alt="Third slide"
           />
         </div>
@@ -214,927 +213,469 @@
       </a>
     </div>
 
-    <br />
-
-    <main>
+    <main class="my-5">
       <!--Buttons-->
-      <div class="container">
-        <div class="row">
-          <div class="col d-flex">
-            <h4 class="text-left d-flex align-items-center ml-2">Products:</h4>
-          </div>
+      <div class="container-fluid">
+        <div class="row ml-2 main-body">
+          <div class="col-sm-1 p-0">
+            <h4 class="text-left mb-4">Products:</h4>
 
-          <div class="col-sm container">
-            <div
-              class="row d-flex justify-content-lg-start justify-content-center"
-            >
-              <div class="">
-                <a
-                  type="button"
-                  class="
-                    m-2
-                    p-lg-3 p-md-3
-                    m-lg-2 m-md-2 m-sm-1
-                    cool-link
-                    active-link
-                  "
-                  id="agarbatti"
-                  >Incense Sticks</a
-                >
-              </div>
-
-              <div class="">
-                <a
-                  type="button"
-                  class="m-2 p-lg-3 p-md-3 m-lg-2 m-md-2 m-sm-1 cool-link"
-                  id="utna"
-                  >Ubtan</a
-                >
-              </div>
-
-              <div class="">
-                <a
-                  type="button"
-                  class="m-2 p-lg-3 p-md-3 m-lg-2 m-md-2 m-sm-1 cool-link"
-                  id="diya"
-                  >Painted Diyas</a
-                >
-              </div>
-
-              <div class="">
-                <a
-                  type="button"
-                  class="m-2 p-lg-3 p-md-3 m-lg-2 m-md-2 m-sm-1 cool-link"
-                  id="soap"
-                  >Soap</a
-                >
-              </div>
+            <div class="d-flex flex-column product-sidebar">
+              <a type="button" class="cool-link active-link" id="agarbatti">
+                Incense Sticks
+              </a>
+              <a
+                type="button"
+                class="cool-link"
+                id="ubtan"
+              >
+                Ubtan
+              </a>
+              <a
+                type="button"
+                class="cool-link"
+                id="diya"
+              >
+                Painted Diyas
+              </a>
+              <!-- <a
+                type="button"
+                class="cool-link"
+                id="soap"
+              >
+                Soap
+              </a> -->
             </div>
           </div>
 
-          <!-- <a href="" class=""><h1>UTNA</h1></a> -->
-        </div>
-      </div>
+          <div class="col-sm-11 p-0">
+            <!--Agarbatti Section/Cards-->
+            <div id="mainAgarbattiBlock">
+              <h2 class="text-center">Incense Sticks</h2>
 
-      <br />
-
-      <!--Agarbatti Section/Cards-->
-      <div id="mainAgarbattiBlock">
-        <h2 class="text-center">Incense Sticks</h2>
-
-        <!--Agarbatti row1-->
-        <div class="container-fluid">
-          <div class="row d-flex justify-content-center">
-            <!-- card 1 -->
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters bg-light">
-                <div class="col-lg">
-                  <!-- image src update -->
-                  <img
-                    lazy-loading="true"
-                    src="images/gulab.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col container">
-                  <div class="card-body px-2 pb-3">
-                    <h5 class="card-title row pb-0 mb-1">
-                      <!-- title update -->
-                      <span class="col-9"> Gulab Agarbatti. </span>
-                      <!-- price -->
-                      <span
-                        class="
-                          col-3
-                          small
-                          product-price
-                          text-right
-                          product-price-gulab
-                        "
-                      >
-                        Rs. 25
-                      </span>
-                    </h5>
-                    <!-- description -->
-                    <p class="card-text btn-text">Description about product</p>
-                    <div class="mb-3">
-                      <h6>Quantity (grams)</h6>
-                      <div class="form-check form-check-inline">
-                        <!-- data-btn same as btn class-->
-                        <!-- value is price -->
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="gulab-50"
-                          type="radio"
-                          name="gulab"
-                          id="gulab-50"
-                          checked="checked"
-                          value="25"
+              <!--Agarbatti row1-->
+              <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                  <!-- card 1 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/gulab.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
                         />
-                        <label class="form-check-label" for="gulab-50"
-                          >50</label
-                        >
                       </div>
-                      <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="gulab-250"
-                          type="radio"
-                          name="gulab"
-                          id="gulab-250"
-                          value="120"
-                        />
-                        <label class="form-check-label" for="gulab-250"
-                          >250</label
-                        >
-                      </div>
-                    </div>
-                    <!--+ - Buttons-->
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="text-right">
-                          <button
-                            type="button"
-                            data-index="0"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              gulab-50 gulab
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                        <div class="text-right" style="display: none">
-                          <button
-                            type="button"
-                            data-index="1"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              gulab-250 gulab
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- card 2 -->
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters bg-light">
-                <div class="col-lg">
-                  <!-- image src update -->
-                  <img
-                    lazy-loading="true"
-                    src="images/kevada.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col container">
-                  <div class="card-body px-2 pb-3">
-                    <h5 class="card-title row pb-0 mb-1">
-                      <!-- title update -->
-                      <span class="col-9"> Kevada Agarbatti. </span>
-                      <!-- price -->
-                      <span
-                        class="
-                          col-3
-                          small
-                          product-price
-                          text-right
-                          product-price-kevada
-                        "
-                      >
-                        Rs. 25
-                      </span>
-                    </h5>
-                    <!-- description -->
-                    <p class="card-text btn-text">Description about product</p>
-                    <div class="mb-3">
-                      <h6>Quantity (grams)</h6>
-                      <div class="form-check form-check-inline">
-                        <!-- data-btn same as btn class-->
-                        <!-- value is price -->
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="kevada-50"
-                          type="radio"
-                          name="kevada"
-                          id="kevada-50"
-                          checked="checked"
-                          value="25"
-                        />
-                        <label class="form-check-label" for="kevada-50"
-                          >50</label
-                        >
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="kevada-250"
-                          type="radio"
-                          name="kevada"
-                          id="kevada-250"
-                          value="120"
-                        />
-                        <label class="form-check-label" for="kevada-250"
-                          >250</label
-                        >
-                      </div>
-                    </div>
-                    <!--+ - Buttons-->
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="text-right">
-                          <button
-                            type="button"
-                            data-index="2"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              kevada-50 kevada
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                        <div class="text-right" style="display: none">
-                          <button
-                            type="button"
-                            data-index="3"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              kevada-250 kevada
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- card 3 -->
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters bg-light">
-                <div class="col-lg">
-                  <!-- image src update -->
-                  <img
-                    lazy-loading="true"
-                    src="images/chandan.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col container">
-                  <div class="card-body px-2 pb-3">
-                    <h5 class="card-title row pb-0 mb-1">
-                      <!-- title update -->
-                      <span class="col-9"> Chandan Agarbatti. </span>
-                      <!-- price -->
-                      <span
-                        class="
-                          col-3
-                          small
-                          product-price
-                          text-right
-                          product-price-chandan
-                        "
-                      >
-                        Rs. 25
-                      </span>
-                    </h5>
-                    <!-- description -->
-                    <p class="card-text btn-text">Description about product</p>
-                    <div class="mb-3">
-                      <h6>Quantity (grams)</h6>
-                      <div class="form-check form-check-inline">
-                        <!-- data-btn same as btn class-->
-                        <!-- value is price -->
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="chandan-50"
-                          type="radio"
-                          name="chandan"
-                          id="chandan-50"
-                          checked="checked"
-                          value="25"
-                        />
-                        <label class="form-check-label" for="chandan-50"
-                          >50</label
-                        >
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="chandan-250"
-                          type="radio"
-                          name="chandan"
-                          id="chandan-250"
-                          value="120"
-                        />
-                        <label class="form-check-label" for="chandan-250"
-                          >250</label
-                        >
-                      </div>
-                    </div>
-                    <!--+ - Buttons-->
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="text-right">
-                          <button
-                            type="button"
-                            data-index="4"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              chandan-50 chandan
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                        <div class="text-right" style="display: none">
-                          <button
-                            type="button"
-                            data-index="5"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              chandan-250 chandan
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--Agarbatti row2-->
-        <div class="container-fluid">
-          <div class="row d-flex justify-content-center">
-            <!-- card 1 -->
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters bg-light">
-                <div class="col-lg">
-                  <!-- image src update -->
-                  <img
-                    lazy-loading="true"
-                    src="images/sonchafa.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col container">
-                  <div class="card-body px-2 pb-3">
-                    <h5 class="card-title row pb-0 mb-1">
-                      <!-- title update -->
-                      <span class="col-9"> Sonchafa Agarbatti. </span>
-                      <!-- price -->
-                      <span
-                        class="
-                          col-3
-                          small
-                          product-price
-                          text-right
-                          product-price-sonchafa
-                        "
-                      >
-                        Rs. 25
-                      </span>
-                    </h5>
-                    <!-- description -->
-                    <p class="card-text btn-text">Description about product</p>
-                    <div class="mb-3">
-                      <h6>Quantity (grams)</h6>
-                      <div class="form-check form-check-inline">
-                        <!-- data-btn same as btn class-->
-                        <!-- value is price -->
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="sonchafa-50"
-                          type="radio"
-                          name="sonchafa"
-                          id="sonchafa-50"
-                          checked="checked"
-                          value="25"
-                        />
-                        <label class="form-check-label" for="sonchafa-50"
-                          >50</label
-                        >
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="sonchafa-250"
-                          type="radio"
-                          name="sonchafa"
-                          id="sonchafa-250"
-                          value="120"
-                        />
-                        <label class="form-check-label" for="sonchafa-250"
-                          >250</label
-                        >
-                      </div>
-                    </div>
-                    <!--+ - Buttons-->
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="text-right">
-                          <button
-                            type="button"
-                            data-index="6"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              sonchafa-50 sonchafa
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                        <div class="text-right" style="display: none">
-                          <button
-                            type="button"
-                            data-index="7"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              sonchafa-250 sonchafa
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- card 2 -->
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters bg-light">
-                <div class="col-lg">
-                  <!-- image src update -->
-                  <img
-                    lazy-loading="true"
-                    src="images/mogra.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col container">
-                  <div class="card-body px-2 pb-3">
-                    <h5 class="card-title row pb-0 mb-1">
-                      <!-- title update -->
-                      <span class="col-9"> Mogra Agarbatti. </span>
-                      <!-- price -->
-                      <span
-                        class="
-                          col-3
-                          small
-                          product-price
-                          text-right
-                          product-price-mogra
-                        "
-                      >
-                        Rs. 25
-                      </span>
-                    </h5>
-                    <!-- description -->
-                    <p class="card-text btn-text">Description about product</p>
-                    <div class="mb-3">
-                      <h6>Quantity (grams)</h6>
-                      <div class="form-check form-check-inline">
-                        <!-- data-btn same as btn class-->
-                        <!-- value is price -->
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="mogra-50"
-                          type="radio"
-                          name="mogra"
-                          id="mogra-50"
-                          checked="checked"
-                          value="25"
-                        />
-                        <label class="form-check-label" for="mogra-50"
-                          >50</label
-                        >
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="mogra-250"
-                          type="radio"
-                          name="mogra"
-                          id="mogra-250"
-                          value="120"
-                        />
-                        <label class="form-check-label" for="mogra-250"
-                          >250</label
-                        >
-                      </div>
-                    </div>
-                    <!--+ - Buttons-->
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="text-right">
-                          <button
-                            type="button"
-                            data-index="8"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              mogra-50 mogra
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                        <div class="text-right" style="display: none">
-                          <button
-                            type="button"
-                            data-index="9"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              mogra-250 mogra
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- card 3 -->
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters bg-light">
-                <div class="col-lg">
-                  <!-- image src update -->
-                  <img
-                    lazy-loading="true"
-                    src="images/panadi.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col container">
-                  <div class="card-body px-2 pb-3">
-                    <h5 class="card-title row pb-0 mb-1">
-                      <!-- title update -->
-                      <span class="col-9"> Panadi Agarbatti. </span>
-                      <!-- price -->
-                      <span
-                        class="
-                          col-3
-                          small
-                          product-price
-                          text-right
-                          product-price-pandadi
-                        "
-                      >
-                        Rs. 25
-                      </span>
-                    </h5>
-                    <!-- description -->
-                    <p class="card-text btn-text">Description about product</p>
-                    <div class="mb-3">
-                      <h6>Quantity (grams)</h6>
-                      <div class="form-check form-check-inline">
-                        <!-- data-btn same as btn class-->
-                        <!-- value is price -->
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="pandadi-50"
-                          type="radio"
-                          name="pandadi"
-                          id="pandadi-50"
-                          checked="checked"
-                          value="25"
-                        />
-                        <label class="form-check-label" for="pandadi-50"
-                          >50</label
-                        >
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="pandadi-250"
-                          type="radio"
-                          name="pandadi"
-                          id="pandadi-250"
-                          value="120"
-                        />
-                        <label class="form-check-label" for="pandadi-250"
-                          >250</label
-                        >
-                      </div>
-                    </div>
-                    <!--+ - Buttons-->
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="text-right">
-                          <button
-                            type="button"
-                            data-index="10"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              pandadi-50 pandadi
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                        <div class="text-right" style="display: none">
-                          <button
-                            type="button"
-                            data-index="11"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              pandadi-250 pandadi
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--Agarbatti row 3-->
-        <div class="container-fluid">
-          <div class="row d-flex justify-content-center">
-            <!-- card 1 -->
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters bg-light">
-                <div class="col-lg">
-                  <!-- image src update -->
-                  <img
-                    lazy-loading="true"
-                    src="images/parijatak.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col container">
-                  <div class="card-body px-2 pb-3">
-                    <h5 class="card-title row pb-0 mb-1">
-                      <!-- title update -->
-                      <span class="col-9"> Prijatak Agarbatti. </span>
-                      <!-- price -->
-                      <span
-                        class="
-                          col-3
-                          small
-                          product-price
-                          text-right
-                          product-price-parijatak
-                        "
-                      >
-                        Rs. 25
-                      </span>
-                    </h5>
-                    <!-- description -->
-                    <p class="card-text btn-text">Description about product</p>
-                    <div class="mb-3">
-                      <h6>Quantity (grams)</h6>
-                      <div class="form-check form-check-inline">
-                        <!-- data-btn same as btn class-->
-                        <!-- value is price -->
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="parijatak-50"
-                          type="radio"
-                          name="parijatak"
-                          id="parijatak-50"
-                          checked="checked"
-                          value="25"
-                        />
-                        <label class="form-check-label" for="parijatak-50"
-                          >50</label
-                        >
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input switch-size"
-                          data-btn="parijatak-250"
-                          type="radio"
-                          name="parijatak"
-                          id="parijatak-250"
-                          value="120"
-                        />
-                        <label class="form-check-label" for="parijatak-250"
-                          >250</label
-                        >
-                      </div>
-                    </div>
-                    <!--+ - Buttons-->
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="text-right">
-                          <button
-                            type="button"
-                            data-index="12"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              parijatak-50 parijatak
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                        <div class="text-right" style="display: none">
-                          <button
-                            type="button"
-                            data-index="13"
-                            class="
-                              btn
-                              m-1
-                              btn-lg
-                              active
-                              add-cart
-                              parijatak-250 parijatak
-                            "
-                          >
-                            Add to cart
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--Utna Main Section Block-->
-      <div id="mainUtnaBlock">
-        <h2 class="text-center">Ubtan</h2>
-        <div class="container-fluid">
-          <div class="row d-flex justify-content-center">
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters">
-                <div class="col-lg">
-                  <img
-                    lazy-loading="true"
-                    src="images/gulab.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col-lg-10 container">
-                  <div class="card-body">
-                    <h6 class="card-title text-center">Utna</h6>
-                    <p class="card-text btn-text text-center">
-                      Price: 20Rs 50gm.100Rs 250gm
-                    </p>
-                    <!--+ - Buttons-->
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 50gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                              <span class="input-group-prepend">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                      <span class="fa fa-minus"></span>
-                                                  </button>
-                                              </span>
-                                              <input type="text" name="quant[1]" class="form-control input-number" id="gulabAgarbatti50Gm" oninput="cartgulabAgarbatti50Gm.value=gulabAgarbatti50Gm.value" value="0" min="0" max="150">
-                                              <span class="input-group-append">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[1]">
-                                                      <span class="fa fa-plus"></span>
-                                                  </button>
-                                              </span>
-                                          </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Gulab Agarbatti. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-gulab
+                              "
                             >
-                              Add to cart
-                            </button>
+                              Rs. 25
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-1 row">
+                            <div class="col">
+                              <h6>Quantity (grams)</h6>
+                              <div class="form-check form-check-inline">
+                                <!-- data-btn same as btn class-->
+                                <!-- value is price -->
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="gulab-50"
+                                  type="radio"
+                                  name="gulab"
+                                  id="gulab-50"
+                                  checked="checked"
+                                  value="25"
+                                />
+                                <label class="form-check-label" for="gulab-50"
+                                  >50</label
+                                >
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="gulab-250"
+                                  type="radio"
+                                  name="gulab"
+                                  id="gulab-250"
+                                  value="120"
+                                />
+                                <label class="form-check-label" for="gulab-250"
+                                  >250</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="gulabAgarbatti50gm"
+                                  class="gulab-50 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                              <div style="display: none">
+                                <input
+                                  type="text"
+                                  data-tag="gulabAgarbatti250gm"
+                                  class="mt-1 gulab-250 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="0"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    gulab-50 gulab
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                              <div class="text-center" style="display: none">
+                                <button
+                                  type="button"
+                                  data-index="1"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    gulab-250 gulab
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
 
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 250gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                              <span class="input-group-prepend">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
-                                                      <span class="fa fa-minus"></span>
-                                                  </button>
-                                              </span>
-                                              <input type="text" name="quant[2]" class="form-control input-number" value="0" min="0" max="150">
-                                              <span class="input-group-append">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" id="gulabAgarbatti250Gm" oninput="cartgulabAgarbatti250Gm.value=gulabAgarbatti250Gm.value" data-type="plus" data-field="quant[2]">
-                                                      <span class="fa fa-plus"></span>
-                                                  </button>
-                                              </span>
-                                          </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
+                  <!-- card 2 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/kevada.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Kevada Agarbatti. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-kevada
+                              "
                             >
-                              Add to cart
-                            </button>
+                              Rs. 25
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="row mb-3">
+                            <div class="col">
+                              <h6>Quantity (grams)</h6>
+                              <div class="form-check form-check-inline">
+                                <!-- data-btn same as btn class-->
+                                <!-- value is price -->
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="kevada-50"
+                                  type="radio"
+                                  name="kevada"
+                                  id="kevada-50"
+                                  checked="checked"
+                                  value="25"
+                                />
+                                <label class="form-check-label" for="kevada-50"
+                                  >50</label
+                                >
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="kevada-250"
+                                  type="radio"
+                                  name="kevada"
+                                  id="kevada-250"
+                                  value="120"
+                                />
+                                <label class="form-check-label" for="kevada-250"
+                                  >250</label
+                                >
+                              </div>
+                            </div>
+
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="kevadaAgarbatti50gm"
+                                  class="text kevada-50 mt-1 units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                              <div style="display: none">
+                                <input
+                                  type="text"
+                                  data-tag="kevadaAgarbatti250gm"
+                                  class="text kevada-250 mt-1 units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="2"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-2
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    kevada-50 kevada
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                              <div class="text-center" style="display: none">
+                                <button
+                                  type="button"
+                                  data-index="3"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-2
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    kevada-250 kevada
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- card 3 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/chandan.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Chandan Agarbatti. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-chandan
+                              "
+                            >
+                              Rs. 25
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3">
+                            <div class="row">
+                              <div class="col">
+                                <h6>Quantity (grams)</h6>
+                                <div class="form-check form-check-inline">
+                                  <!-- data-btn same as btn class-->
+                                  <!-- value is price -->
+                                  <input
+                                    class="form-check-input switch-size"
+                                    data-btn="chandan-50"
+                                    type="radio"
+                                    name="chandan"
+                                    id="chandan-50"
+                                    checked="checked"
+                                    value="25"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="chandan-50"
+                                    >50</label
+                                  >
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input
+                                    class="form-check-input switch-size"
+                                    data-btn="chandan-250"
+                                    type="radio"
+                                    name="chandan"
+                                    id="chandan-250"
+                                    value="120"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="chandan-250"
+                                    >250</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="col text-right">
+                                  <h6>Units</h6>
+                                  <div>
+                                    <input
+                                      type="text"
+                                      data-tag="chandanAgarbatti50gm"
+                                      class="text chandan-50 mt-1 units"
+                                      placeholder="0"
+                                      style="width: 45px"
+                                    />
+                                  </div>
+                                  <div style="display: none">
+                                    <input
+                                      type="text"
+                                      data-tag="chandanAgarbatti250gm"
+                                      class="text chandan-250 mt-1 units"
+                                      placeholder="0"
+                                      style="width: 45px"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="4"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    chandan-50 chandan
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                              <div class="text-center" style="display: none">
+                                <button
+                                  type="button"
+                                  data-index="5"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    chandan-250 chandan
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1142,84 +683,430 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters">
-                <div class="col-lg">
-                  <img
-                    lazy-loading="true"
-                    src="images/kevada.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col-lg-10 container">
-                  <div class="card-body">
-                    <h6 class="card-title text-center">Kevada Agarbatti.</h6>
-                    <p class="card-text btn-text text-center">
-                      Price: 20Rs 50gm.100Rs 250gm
-                    </p>
-                    <!--+ - Buttons-->
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 50gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                              <span class="input-group-prepend">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[3]">
-                                                      <span class="fa fa-minus"></span>
-                                                  </button>
-                                              </span>
-                                              <input type="text" name="quant[3]" class="form-control input-number" id="kevadaAgarbatti50Gm" oninput="cartkevadaAgarbatti50Gm.value=kevadaAgarbatti50Gm.value" value="0" min="0" max="150">
-                                              <span class="input-group-append">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[3]">
-                                                      <span class="fa fa-plus"></span>
-                                                  </button>
-                                              </span>
-                                          </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
+              <!--Agarbatti row2-->
+              <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                  <!-- card 1 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/sonchafa.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Sonchafa Agarbatti. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-sonchafa
+                              "
                             >
-                              Add to cart
-                            </button>
+                              Rs. 25
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="row mb-3">
+                            <div class="col">
+                              <h6>Quantity (grams)</h6>
+                              <div class="form-check form-check-inline">
+                                <!-- data-btn same as btn class-->
+                                <!-- value is price -->
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="sonchafa-50"
+                                  type="radio"
+                                  name="sonchafa"
+                                  id="sonchafa-50"
+                                  checked="checked"
+                                  value="25"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="sonchafa-50"
+                                  >50</label
+                                >
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="sonchafa-250"
+                                  type="radio"
+                                  name="sonchafa"
+                                  id="sonchafa-250"
+                                  value="120"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="sonchafa-250"
+                                  >250</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="col text-right">
+                                <h6>Units</h6>
+                                <div>
+                                  <input
+                                    type="text"
+                                    data-tag="sonchafaAgarbatti50gm"
+                                    class="sonchafa-50 mt-1 text units"
+                                    placeholder="0"
+                                    style="width: 45px"
+                                  />
+                                </div>
+                                <div style="display: none">
+                                  <input
+                                    type="text"
+                                    data-tag="sonchafaAgarbatti250gm"
+                                    class="mt-1 sonchafa-250 text units"
+                                    placeholder="0"
+                                    style="width: 45px"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="6"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    sonchafa-50 sonchafa
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                              <div class="text-center" style="display: none">
+                                <button
+                                  type="button"
+                                  data-index="7"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    sonchafa-250 sonchafa
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
 
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 250gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                              <span class="input-group-prepend">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[4]">
-                                                      <span class="fa fa-minus"></span>
-                                                  </button>
-                                              </span>
-                                              <input type="text" name="quant[4]" class="form-control input-number" id="kevadaAgarbatti250Gm" oninput="cartkevadaAgarbatti250Gm.value=kevadaAgarbatti250Gm.value" value="0" min="0" max="150">
-                                              <span class="input-group-append">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[4]">
-                                                      <span class="fa fa-plus"></span>
-                                                  </button>
-                                              </span>
-                                          </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
+                  <!-- card 2 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/mogra.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Mogra Agarbatti. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-mogra
+                              "
                             >
-                              Add to cart
-                            </button>
+                              Rs. 25
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="row mb-3">
+                            <div class="col">
+                              <h6>Quantity (grams)</h6>
+                              <div class="form-check form-check-inline">
+                                <!-- data-btn same as btn class-->
+                                <!-- value is price -->
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="mogra-50"
+                                  type="radio"
+                                  name="mogra"
+                                  id="mogra-50"
+                                  checked="checked"
+                                  value="25"
+                                />
+                                <label class="form-check-label" for="mogra-50"
+                                  >50</label
+                                >
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="mogra-250"
+                                  type="radio"
+                                  name="mogra"
+                                  id="mogra-250"
+                                  value="120"
+                                />
+                                <label class="form-check-label" for="mogra-250"
+                                  >250</label
+                                >
+                              </div>
+                            </div>
+
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="mograAgarbatti50gm"
+                                  class="mogra-50 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                              <div style="display: none">
+                                <input
+                                  type="text"
+                                  data-tag="mograAgarbatti250gm"
+                                  class="mt-1 mogra-250 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="8"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    mogra-50 mogra
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                              <div class="text-center" style="display: none">
+                                <button
+                                  type="button"
+                                  data-index="9"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    mogra-250 mogra
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- card 3 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/panadi.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Panadi Agarbatti. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-pandadi
+                              "
+                            >
+                              Rs. 25
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="row mb-3">
+                            <div class="col">
+                              <h6>Quantity (grams)</h6>
+                              <div class="form-check form-check-inline">
+                                <!-- data-btn same as btn class-->
+                                <!-- value is price -->
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="pandadi-50"
+                                  type="radio"
+                                  name="pandadi"
+                                  id="pandadi-50"
+                                  checked="checked"
+                                  value="25"
+                                />
+                                <label class="form-check-label" for="pandadi-50"
+                                  >50</label
+                                >
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="pandadi-250"
+                                  type="radio"
+                                  name="pandadi"
+                                  id="pandadi-250"
+                                  value="120"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="pandadi-250"
+                                  >250</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="panadiAgarbatti50gm"
+                                  class="pandadi-50 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                              <div style="display: none">
+                                <input
+                                  type="text"
+                                  data-tag="panadiAgarbatti250gm"
+                                  class="mt-1 pandadi-250 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="10"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    pandadi-50 pandadi
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                              <div class="text-center" style="display: none">
+                                <button
+                                  type="button"
+                                  data-index="11"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    pandadi-250 pandadi
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1227,177 +1114,147 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters">
-                <div class="col-lg">
-                  <img
-                    lazy-loading="true"
-                    src="images/chandan.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col-lg-10 container">
-                  <div class="card-body">
-                    <h6 class="card-title text-center">Chandan Agarbatti.</h6>
-                    <p class="card-text btn-text text-center">
-                      Price: 20Rs 50gm.100Rs 250gm
-                    </p>
-                    <!--+ - Buttons-->
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 50gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                              <span class="input-group-prepend">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[5]">
-                                                      <span class="fa fa-minus"></span>
-                                                  </button>
-                                              </span>
-                                              <input type="text" name="quant[5]" class="form-control input-number" id="chandanAgarbatti50Gm" oninput="cartchandanAgarbatti50Gm.value=chandanAgarbatti50Gm.value" value="0" min="0" max="150">
-                                              <span class="input-group-append">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[5]">
-                                                      <span class="fa fa-plus"></span>
-                                                  </button>
-                                              </span>
-                                          </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
-                            >
-                              Add to cart
-                            </button>
-                          </div>
-                        </div>
+              <!--Agarbatti row 3-->
+              <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                  <!-- card 1 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/parijatak.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
                       </div>
-                    </div>
-
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 250gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                              <span class="input-group-prepend">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[6]">
-                                                      <span class="fa fa-minus"></span>
-                                                  </button>
-                                              </span>
-                                              <input type="text" name="quant[6]" class="form-control input-number" id="chandanAgarbatti250Gm" oninput="cartchandanAgarbatti250Gm.value=chandanAgarbatti250Gm.value" value="0" min="0" max="150">
-                                              <span class="input-group-append">
-                                                  <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[6]">
-                                                      <span class="fa fa-plus"></span>
-                                                  </button>
-                                              </span>
-                                          </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Prijatak Agarbatti. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-parijatak
+                              "
                             >
-                              Add to cart
-                            </button>
+                              Rs. 25
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity (grams)</h6>
+                              <div class="form-check form-check-inline">
+                                <!-- data-btn same as btn class-->
+                                <!-- value is price -->
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="parijatak-50"
+                                  type="radio"
+                                  name="parijatak"
+                                  id="parijatak-50"
+                                  checked="checked"
+                                  value="25"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="parijatak-50"
+                                  >50</label
+                                >
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="parijatak-250"
+                                  type="radio"
+                                  name="parijatak"
+                                  id="parijatak-250"
+                                  value="120"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="parijatak-250"
+                                  >250</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="parijatakAgarbatti50gm"
+                                  class="parijatak-50 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                              <div style="display: none">
+                                <input
+                                  type="text"
+                                  data-tag="parijatakAgarbatti250gm"
+                                  class="mt-1 parijatak-250 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--Painted diyas section block-->
-      <div id="paintedDiyaBlock">
-        <h2 class="text-center">Painted Diyas</h2>
-        <div class="container-fluid">
-          <div class="row d-flex justify-content-center">
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters">
-                <div class="col-lg">
-                  <img
-                    lazy-loading="true"
-                    src="images/gulab.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col-lg-10 container">
-                  <div class="card-body">
-                    <h6 class="card-title text-center">Utna</h6>
-                    <p class="card-text btn-text text-center">
-                      Price: 20Rs 50gm.100Rs 250gm
-                    </p>
-                    <!--+ - Buttons-->
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 50gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                            <span class="input-group-prepend">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                    <span class="fa fa-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input type="text" name="quant[1]" class="form-control input-number" id="gulabAgarbatti50Gm" oninput="cartgulabAgarbatti50Gm.value=gulabAgarbatti50Gm.value" value="0" min="0" max="150">
-                                            <span class="input-group-append">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[1]">
-                                                    <span class="fa fa-plus"></span>
-                                                </button>
-                                            </span>
-                                        </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
-                            >
-                              Add to cart
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 250gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                            <span class="input-group-prepend">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
-                                                    <span class="fa fa-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input type="text" name="quant[2]" class="form-control input-number" value="0" min="0" max="150">
-                                            <span class="input-group-append">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" id="gulabAgarbatti250Gm" oninput="cartgulabAgarbatti250Gm.value=gulabAgarbatti250Gm.value" data-type="plus" data-field="quant[2]">
-                                                    <span class="fa fa-plus"></span>
-                                                </button>
-                                            </span>
-                                        </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
-                            >
-                              Add to cart
-                            </button>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="12"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    parijatak-50 parijatak
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                              <div class="text-center" style="display: none">
+                                <button
+                                  type="button"
+                                  data-index="13"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    parijatak-250 parijatak
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1407,82 +1264,302 @@
               </div>
             </div>
 
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters">
-                <div class="col-lg">
-                  <img
-                    lazy-loading="true"
-                    src="images/kevada.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col-lg-10 container">
-                  <div class="card-body">
-                    <h6 class="card-title text-center">Kevada Agarbatti.</h6>
-                    <p class="card-text btn-text text-center">
-                      Price: 20Rs 50gm.100Rs 250gm
-                    </p>
-                    <!--+ - Buttons-->
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 50gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                            <span class="input-group-prepend">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[3]">
-                                                    <span class="fa fa-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input type="text" name="quant[3]" class="form-control input-number" id="kevadaAgarbatti50Gm" oninput="cartkevadaAgarbatti50Gm.value=kevadaAgarbatti50Gm.value" value="0" min="0" max="150">
-                                            <span class="input-group-append">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[3]">
-                                                    <span class="fa fa-plus"></span>
-                                                </button>
-                                            </span>
-                                        </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
+            <!--ubtan Main Section Block-->
+            <div id="mainubtanBlock">
+              <h2 class="text-center">Ubtan</h2>
+              <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+
+                  <!-- card 1 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/ubtan_15_gram.jpg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Ubtan. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-ubtan
+                              "
                             >
-                              Add to cart
-                            </button>
+                              Rs. 10
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity (grams)</h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="ubtan-15"
+                                  type="radio"
+                                  name="ubtan15"
+                                  id="ubtan-15"
+                                  value="10"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="ubtan-15"
+                                  >15</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="ubtan15gm"
+                                  class="ubtan-15 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="14"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    ubtan-15 ubtan
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
 
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 250gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                            <span class="input-group-prepend">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[4]">
-                                                    <span class="fa fa-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input type="text" name="quant[4]" class="form-control input-number" id="kevadaAgarbatti250Gm" oninput="cartkevadaAgarbatti250Gm.value=kevadaAgarbatti250Gm.value" value="0" min="0" max="150">
-                                            <span class="input-group-append">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[4]">
-                                                    <span class="fa fa-plus"></span>
-                                                </button>
-                                            </span>
-                                        </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
+                  
+                  <!-- card 2 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/ubtan_100_gram.jpg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Ubtan. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-ubtan
+                              "
                             >
-                              Add to cart
-                            </button>
+                              Rs. 70
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity (grams)</h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="ubtan-100"
+                                  type="radio"
+                                  name="ubtan100"
+                                  id="ubtan-100"
+                                  value="70"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="ubtan-100"
+                                  >100</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="ubtan100gm"
+                                  class="ubtan-100 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="15"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    ubtan-100 ubtan
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  
+                  <!-- card 3 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/ubtan_250_gram.jpg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Ubtan. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-ubtan
+                              "
+                            >
+                              Rs. 160
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity (grams)</h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="ubtan-250"
+                                  type="radio"
+                                  name="ubtan250"
+                                  id="ubtan-250"
+                                  value="160"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="ubtan-250"
+                                  >250</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="ubtan250gm"
+                                  class="ubtan-250 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="16"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    ubtan-250 ubtan
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1492,125 +1569,746 @@
               </div>
             </div>
 
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters">
-                <div class="col-lg">
-                  <img
-                    lazy-loading="true"
-                    src="images/chandan.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col-lg-10 container">
-                  <div class="card-body">
-                    <h6 class="card-title text-center">Chandan Agarbatti.</h6>
-                    <p class="card-text btn-text text-center">
-                      Price: 20Rs 50gm.100Rs 250gm
-                    </p>
-                    <!--+ - Buttons-->
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 50gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                            <span class="input-group-prepend">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[5]">
-                                                    <span class="fa fa-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input type="text" name="quant[5]" class="form-control input-number" id="chandanAgarbatti50Gm" oninput="cartchandanAgarbatti50Gm.value=chandanAgarbatti50Gm.value" value="0" min="0" max="150">
-                                            <span class="input-group-append">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[5]">
-                                                    <span class="fa fa-plus"></span>
-                                                </button>
-                                            </span>
-                                        </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
-                            >
-                              Add to cart
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+            <!--Painted diyas section block-->
+            <div id="paintedDiyaBlock">
+              <h2 class="text-center">Painted Diyas</h2>
 
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 250gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
-                                            <span class="input-group-prepend">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[6]">
-                                                    <span class="fa fa-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input type="text" name="quant[6]" class="form-control input-number" id="chandanAgarbatti250Gm" oninput="cartchandanAgarbatti250Gm.value=chandanAgarbatti250Gm.value" value="0" min="0" max="150">
-                                            <span class="input-group-append">
-                                                <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[6]">
-                                                    <span class="fa fa-plus"></span>
-                                                </button>
-                                            </span>
-                                        </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
+              <!-- row 1 -->
+              <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                  <!-- card 1 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/diya_1.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Diya 1. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-diya1
+                              "
                             >
-                              Add to cart
-                            </button>
+                              Rs. 30
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity(nag) </h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="diya1"
+                                  type="radio"
+                                  name="diya1"
+                                  id="diya1"
+                                  value="30"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="diya1"
+                                  >2</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="diya1"
+                                  class="diya1 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="17"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    diya1 diya
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+
+                  <!-- card 2 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/diya_2.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Diya 2. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-diya2
+                              "
+                            >
+                              Rs. 30
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity(nag) </h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="diya2"
+                                  type="radio"
+                                  name="diya2"
+                                  id="diya2"
+                                  value="30"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="diya2"
+                                  >2</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="diya2"
+                                  class="diya2 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="18"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    diya2 diya
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- card 3 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/diya_3.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Diya 3. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-diya3
+                              "
+                            >
+                              Rs. 30
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity(nag) </h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="diya3"
+                                  type="radio"
+                                  name="diya3"
+                                  id="diya3"
+                                  value="30"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="diya3"
+                                  >2</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="diya3"
+                                  class="diya3 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="19"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    diya3 diya
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- row 2 -->
+              <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                  <!-- card 1 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/diya_4.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Diya 4. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-diya4
+                              "
+                            >
+                              Rs. 30
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity(nag) </h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="diya4"
+                                  type="radio"
+                                  name="diya4"
+                                  id="diya4"
+                                  value="30"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="diya4"
+                                  >2</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="diya4"
+                                  class="diya4 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="20"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    diya4 diya
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- card 2 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/diya_5.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Diya 5. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-diya5
+                              "
+                            >
+                              Rs. 30
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity(nag) </h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="diya5"
+                                  type="radio"
+                                  name="diya5"
+                                  id="diya5"
+                                  value="30"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="diya5"
+                                  >2</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="diya5"
+                                  class="diya5 mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="21"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    diya5 diya
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- card 3 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/samayi_diya.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Samayi Diya. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-samayiDiya
+                              "
+                            >
+                              Rs. 80
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity(nag) </h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="samayiDiya"
+                                  type="radio"
+                                  name="samayiDiya"
+                                  id="samayiDiya"
+                                  value="80"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="samayiDiya"
+                                  >2</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="samayiDiya"
+                                  class="samayiDiya mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="22"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    samayiDiya diya
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- row 3 -->
+              <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                  <!-- card 1 -->
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters bg-light">
+                      <div class="col-lg">
+                        <!-- image src update -->
+                        <img
+                          lazy-loading="true"
+                          src="images/tulsi_diya.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9"> Tulsi Diya. </span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-tulsiDiya
+                              "
+                            >
+                              Rs. 80
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Description about product
+                          </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity(nag) </h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="tulsiDiya"
+                                  type="radio"
+                                  name="tulsiDiya"
+                                  id="tulsiDiya"
+                                  value="80"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="tulsiDiya"
+                                  >2</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="tulsiDiya"
+                                  class="tulsiDiya mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="23"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    tulsiDiya diya
+                                  "
+                                >
+                                  Add to cart
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <!--Soap Section Block-->
-      <div id="soapBlock">
-        <h2 class="text-center">Soap</h2>
-        <div class="container-fluid">
-          <div class="row d-flex justify-content-center">
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters">
-                <div class="col-lg">
-                  <img
-                    lazy-loading="true"
-                    src="images/gulab.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col-lg-10 container">
-                  <div class="card-body">
-                    <h6 class="card-title text-center">Utna</h6>
-                    <p class="card-text btn-text text-center">
-                      Price: 20Rs 50gm.100Rs 250gm
-                    </p>
-                    <!--+ - Buttons-->
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 50gm pack to cart!</b>
+            <!--Soap Section Block-->
+            <div id="soapBlock">
+              <h2 class="text-center">Soap</h2>
+              <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters">
+                      <div class="col-lg">
+                        <img
+                          lazy-loading="true"
+                          src="images/gulab.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col-lg-10 container">
+                        <div class="card-body">
+                          <h6 class="card-title text-center">ubtan</h6>
+                          <p class="card-text btn-text text-center">
+                            Price: 20Rs 50gm.100Rs 250gm
                           </p>
-                          <!-- <div class="input-group">
+                          <!--+ - Buttons-->
+                          <div class="m-1">
+                            <div class="row">
+                              <div class="col-sm">
+                                <p class="btn-text text-center">
+                                  <b>Add 50gm pack to cart!</b>
+                                </p>
+                                <!-- <div class="input-group">
                                           <span class="input-group-prepend">
                                               <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
                                                   <span class="fa fa-minus"></span>
@@ -1623,25 +2321,25 @@
                                               </button>
                                           </span>
                                       </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
-                            >
-                              Add to cart
-                            </button>
+                                <div class="text-center">
+                                  <button
+                                    type="button"
+                                    class="btn btn-success m-1 add-cart"
+                                  >
+                                    Add to cart
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
 
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 250gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
+                          <div class="m-1">
+                            <div class="row">
+                              <div class="col-sm">
+                                <p class="btn-text text-center">
+                                  <b>Add 250gm pack to cart!</b>
+                                </p>
+                                <!-- <div class="input-group">
                                           <span class="input-group-prepend">
                                               <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
                                                   <span class="fa fa-minus"></span>
@@ -1654,48 +2352,50 @@
                                               </button>
                                           </span>
                                       </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
-                            >
-                              Add to cart
-                            </button>
+                                <div class="text-center">
+                                  <button
+                                    type="button"
+                                    class="btn btn-success m-1 add-cart"
+                                  >
+                                    Add to cart
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters">
-                <div class="col-lg">
-                  <img
-                    lazy-loading="true"
-                    src="images/kevada.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col-lg-10 container">
-                  <div class="card-body">
-                    <h6 class="card-title text-center">Kevada Agarbatti.</h6>
-                    <p class="card-text btn-text text-center">
-                      Price: 20Rs 50gm.100Rs 250gm
-                    </p>
-                    <!--+ - Buttons-->
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 50gm pack to cart!</b>
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters">
+                      <div class="col-lg">
+                        <img
+                          lazy-loading="true"
+                          src="images/kevada.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col-lg-10 container">
+                        <div class="card-body">
+                          <h6 class="card-title text-center">
+                            Kevada Agarbatti.
+                          </h6>
+                          <p class="card-text btn-text text-center">
+                            Price: 20Rs 50gm.100Rs 250gm
                           </p>
-                          <!-- <div class="input-group">
+                          <!--+ - Buttons-->
+                          <div class="m-1">
+                            <div class="row">
+                              <div class="col-sm">
+                                <p class="btn-text text-center">
+                                  <b>Add 50gm pack to cart!</b>
+                                </p>
+                                <!-- <div class="input-group">
                                           <span class="input-group-prepend">
                                               <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[3]">
                                                   <span class="fa fa-minus"></span>
@@ -1708,25 +2408,25 @@
                                               </button>
                                           </span>
                                       </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
-                            >
-                              Add to cart
-                            </button>
+                                <div class="text-center">
+                                  <button
+                                    type="button"
+                                    class="btn btn-success m-1 add-cart"
+                                  >
+                                    Add to cart
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
 
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 250gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
+                          <div class="m-1">
+                            <div class="row">
+                              <div class="col-sm">
+                                <p class="btn-text text-center">
+                                  <b>Add 250gm pack to cart!</b>
+                                </p>
+                                <!-- <div class="input-group">
                                           <span class="input-group-prepend">
                                               <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[4]">
                                                   <span class="fa fa-minus"></span>
@@ -1739,48 +2439,50 @@
                                               </button>
                                           </span>
                                       </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
-                            >
-                              Add to cart
-                            </button>
+                                <div class="text-center">
+                                  <button
+                                    type="button"
+                                    class="btn btn-success m-1 add-cart"
+                                  >
+                                    Add to cart
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="mb-3 m-2 col-lg-3 col-md-4">
-              <div class="card no-gutters">
-                <div class="col-lg">
-                  <img
-                    lazy-loading="true"
-                    src="images/chandan.jpeg"
-                    class="card-img"
-                    alt="..."
-                    height="70%"
-                    width="100%"
-                  />
-                </div>
-                <div class="col-lg-10 container">
-                  <div class="card-body">
-                    <h6 class="card-title text-center">Chandan Agarbatti.</h6>
-                    <p class="card-text btn-text text-center">
-                      Price: 20Rs 50gm.100Rs 250gm
-                    </p>
-                    <!--+ - Buttons-->
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 50gm pack to cart!</b>
+                  <div class="mb-3 m-2 col-lg-3 col-md-4">
+                    <div class="card no-gutters">
+                      <div class="col-lg">
+                        <img
+                          lazy-loading="true"
+                          src="images/chandan.jpeg"
+                          class="card-img"
+                          alt="..."
+                          height="70%"
+                          width="100%"
+                        />
+                      </div>
+                      <div class="col-lg-10 container">
+                        <div class="card-body">
+                          <h6 class="card-title text-center">
+                            Chandan Agarbatti.
+                          </h6>
+                          <p class="card-text btn-text text-center">
+                            Price: 20Rs 50gm.100Rs 250gm
                           </p>
-                          <!-- <div class="input-group">
+                          <!--+ - Buttons-->
+                          <div class="m-1">
+                            <div class="row">
+                              <div class="col-sm">
+                                <p class="btn-text text-center">
+                                  <b>Add 50gm pack to cart!</b>
+                                </p>
+                                <!-- <div class="input-group">
                                           <span class="input-group-prepend">
                                               <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[5]">
                                                   <span class="fa fa-minus"></span>
@@ -1793,25 +2495,25 @@
                                               </button>
                                           </span>
                                       </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
-                            >
-                              Add to cart
-                            </button>
+                                <div class="text-center">
+                                  <button
+                                    type="button"
+                                    class="btn btn-success m-1 add-cart"
+                                  >
+                                    Add to cart
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
 
-                    <div class="m-1">
-                      <div class="row">
-                        <div class="col-sm">
-                          <p class="btn-text text-center">
-                            <b>Add 250gm pack to cart!</b>
-                          </p>
-                          <!-- <div class="input-group">
+                          <div class="m-1">
+                            <div class="row">
+                              <div class="col-sm">
+                                <p class="btn-text text-center">
+                                  <b>Add 250gm pack to cart!</b>
+                                </p>
+                                <!-- <div class="input-group">
                                           <span class="input-group-prepend">
                                               <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[6]">
                                                   <span class="fa fa-minus"></span>
@@ -1824,13 +2526,16 @@
                                               </button>
                                           </span>
                                       </div> -->
-                          <div class="text-center">
-                            <button
-                              type="button"
-                              class="btn btn-success m-1 add-cart"
-                            >
-                              Add to cart
-                            </button>
+                                <div class="text-center">
+                                  <button
+                                    type="button"
+                                    class="btn btn-success m-1 add-cart"
+                                  >
+                                    Add to cart
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1839,13 +2544,18 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="go-to-cart" style="display: none;">
-        <div class="d-flex justify-content-center m-3">
-          <a class="btn btn-outline-primary text-dark btn-lg btn-link" href="cart.html"> Go To Cart </a>
+            <div class="go-to-cart" style="display: none">
+              <div class="d-flex justify-content-center m-3">
+                <a
+                  class="btn btn-outline-primary text-dark btn-lg btn-link"
+                  href="cart.html"
+                >
+                  Go To Cart
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -1857,105 +2567,18 @@
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     />
     <a
-      href="https://api.whatsapp.com/send?phone=7045413967&text=Hello!!!"
-      class="float"
+      href="https://api.whatsapp.com/send?phone=9028730937&text=Hello!!!"
+      class="float whatsapp"
       target="_blank"
+      data-toggle="tooltip" 
+      data-placement="top" 
+      title="Connect with us through WhatsApp for any queries/suggestions"
     >
       <i class="fa fa-whatsapp my-float"></i>
     </a>
 
     <!-- FINAL FOOTER  -->
-    <!-- <div class="footerColor mt-5">
-      <br />
-      <footer class="container footer">
-        <div
-          class="
-            row
-            d-flex
-            justify-content-around
-            justify-content-lg-between
-            justify-content-md-around
-            justify-content-sm-around
-          "
-        >
-          <div class="footer-left col-sm">
-            <p class="about">
-              <span> About the company</span>Lorem ipsum dolor, sit amet
-              consectetur adipisicing elit. Nobis modi, aliquam harum nam
-              adipisci perspiciatis itaque quidem quae obcaecati, quis molestias
-              eligendi vitae voluptatem natus consequuntur earum! Voluptate,
-              debitis nam?m
-            </p>
-            <div class="">
-              <ul class="navbar-nav ml-auto">
-                <ul class="navbar-nav flex-row">
-                  <li class="nav-item">
-                    <a class="nav-link px-1" href="" target="_blank"
-                      ><span class="fa fa-facebook icon"></span
-                    ></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link px-1" href="" target="_blank"
-                      ><span class="fa fa-envelope icon"></span
-                    ></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link px-1" href="" target="_blank"
-                      ><span class="fa fa-instagram icon"></span
-                    ></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link px-1" href="" target="_blank"
-                      ><span class="fa fa-twitter icon"></span
-                    ></a>
-                  </li>
-                </ul>
-              </ul>
-            </div>
-          </div>
-
-          <div class="footer-center float-lg-center col-sm">
-            <div>
-              <i class="fa fa-map-marker"></i>
-              <p><span>Vivkenand Seva Mandal</span>Dombivali, Thane</p>
-            </div>
-            <div>
-              <i class="fa fa-phone"></i>
-              <p>+91 1234567890</p>
-            </div>
-            <div>
-              <i class="fa fa-envelope"></i>
-              <p><a href="#">muse@gmail.com</a></p>
-            </div>
-          </div>
-
-          <div class="footer-center float-lg-center col-sm">
-            <div class="text-center">
-              <img
-                lazy-loading="true"
-                class="resp_logo"
-                src="images/FinalLogo.png"
-                class="img-fluid"
-                width="250"
-              />
-            </div>
-
-            <div class="map-responsive mb-2">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.619314278465!2d73.08675491485346!3d19.21182268701011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be79589cd02f93d%3A0x1b809ed224efb4be!2sVivekanand%20Seva%20Mandal!5e0!3m2!1sen!2sin!4v1632975118962!5m2!1sen!2sin"
-                width="600"
-                height="450"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div> -->
-
-    <footer class="mt-4 px-5 py-3 footer text-light">
+    <footer class="mt-4 px-5 py-3 footer">
       <section class="row">
         <div class="col">
           <h5 class="my-2">About the company</h5>
@@ -1963,46 +2586,39 @@
             <img
               lazy-loading="true"
               class="resp_logo"
-              src="images/FinalLogo.png"
+              src="images/header_logo.png"
               class="img-fluid"
               width="250"
             />
           </div>
           <article>
             <p>
-              Lorem ipsum dolor, sit amet
-              consectetur adipisicing elit. Nobis modi, aliquam harum nam
-              adipisci perspiciatis itaque quidem quae obcaecati, quis molestias
-              eligendi vitae voluptatem natus consequuntur earum! Voluptate,
-              debitis nam?m
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis
+              modi, aliquam harum nam adipisci perspiciatis itaque quidem quae
+              obcaecati, quis molestias eligendi vitae voluptatem natus
+              consequuntur earum! Voluptate, debitis nam?m
             </p>
           </article>
         </div>
 
         <div class="col pl-5">
-          <h5 class="my-2">
-            Connect with us
-          </h5>
+          <h5 class="my-2">Connect with us</h5>
           <div class="mb-1">
-            <a href="tel:+">
+            <a href="tel:+919028730937">
               <i class="fa fa-phone bg"></i>
-              <span class="pl-2">
-                +91 1234567890
-              </span>
+              <span class="pl-2"> +91 9028730937 </span>
             </a>
           </div>
           <div>
             <a href="mailto:">
               <i class="fa fa-envelope bg"></i>
-              <span class="pl-2">
-                muse@gmail.com
-              </span>
+              <span class="pl-2"> muse@gmail.com </span>
             </a>
           </div>
           <ul class="navbar-nav ml-auto mt-3">
             <ul class="navbar-nav flex-row">
               <li class="nav-item">
-                <a class="nav-link px-1" href="" target="_blank"
+                <a class="nav-link px-1" href="https://m.facebook.com/musebyvsm/" target="_blank"
                   ><span class="fa fa-facebook icon"></span
                 ></a>
               </li>
@@ -2012,19 +2628,19 @@
                 ></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-1" href="" target="_blank"
+                <a class="nav-link px-1" href="https://www.instagram.com/muse_vsm/" target="_blank"
                   ><span class="fa fa-instagram icon"></span
                 ></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-1" href="" target="_blank"
+                <a class="nav-link px-1" href="https://twitter.com/MUSE_VSM?s=09" target="_blank"
                   ><span class="fa fa-twitter icon"></span
                 ></a>
               </li>
             </ul>
           </ul>
         </div>
-        
+
         <div class="col">
           <h5 class="mb-2 row">
             <span class="col-1 d-flex align-items-center">
@@ -2032,12 +2648,8 @@
             </span>
             <span class="col-11">
               <span class="row">
-                <span class="col">
-                  Vivekanand Seva Mandal
-                </span>
-                <span class="col-12">
-                  Dombivali, Thane
-                </span>
+                <span class="col"> Vivekanand Seva Mandal </span>
+                <span class="col-12"> Dombivali, Thane </span>
               </span>
             </span>
           </h5>
@@ -2051,7 +2663,7 @@
               loading="lazy"
             ></iframe>
           </div>
-        </div> 
+        </div>
       </section>
     </footer>
 
@@ -2131,7 +2743,8 @@
         }
       });
     </script>
+
+    <script defer src="{{url_for('static', filename='js/main.js')}}"></script>
     
-    <script src="{{url_for('static', filename='js/main.js')}}"></script>
   </body>
 </html>
