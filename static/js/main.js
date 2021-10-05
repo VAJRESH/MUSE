@@ -67,7 +67,7 @@ let products = [
   },
   {
     name: "Mogra Agarbatti 50gm",
-    tag: "mografaAgarbatti50gm",
+    tag: "mograAgarbatti50gm",
     price: 25,
     inCart: 0,
     img: "images/mogra.jpeg",
@@ -114,68 +114,102 @@ let products = [
     category: "Incense Sticks",
   },
   {
-    name: "Utna 50gm",
-    tag: "utna50gm",
-    price: 50,
+    name: "Ubtan 15",
+    tag: "ubtan15gm",
+    price: 10,
     inCart: 0,
-    category: "Utna",
+    img: "images/ubtan_15_gram.jpg",
+    category: "Ubtan",
   },
   {
-    name: "Utna 250gm",
-    tag: "utna250gm",
-    price: 250,
+    name: "Ubtan 100",
+    tag: "ubtan100gm",
+    price: 70,
     inCart: 0,
-    category: "Utna",
+    img: "images/ubtan_100_gram.jpg",
+    category: "Ubtan",
   },
   {
-    name: "Utna 11111",
-    tag: "utna",
-    price: 50,
+    name: "Ubtan 250",
+    tag: "ubtan250gm",
+    price: 160,
     inCart: 0,
-    category: "Utna",
+    img: "images/ubtan_250_gram.jpg",
+    category: "Ubtan",
   },
   {
-    name: "Utna 22222",
-    tag: "utna2222",
-    price: 250,
+    name: "Diya 1",
+    tag: "diya1",
+    price: 30,
     inCart: 0,
-    category: "Utna",
-  },
-  {
-    name: "Utna 33333",
-    tag: "utna33333",
-    price: 50,
-    inCart: 0,
-    category: "Utna",
-  },
-  {
-    name: "Utna 4444",
-    tag: "utna44444",
-    price: 250,
-    inCart: 0,
-    category: "Utna",
-  },
-  {
-    name: "diya 1111",
-    tag: "diya1111",
-    price: 50,
-    inCart: 0,
+    img: "images/diya_1.jpeg",
     category: "Diya",
   },
   {
-    name: "diya 2222",
-    tag: "diya 2222",
-    price: 250,
+    name: "Diya 2",
+    tag: "diya2",
+    price: 30,
     inCart: 0,
+    img: "images/diya_2.jpeg",
+    category: "Diya",
+  },
+  {
+    name: "Diya 3",
+    tag: "diya3",
+    price: 30,
+    inCart: 0,
+    img: "images/diya_3.jpeg",
+    category: "Diya",
+  },
+  {
+    name: "Diya 4",
+    tag: "diya4",
+    price: 30,
+    inCart: 0,
+    img: "images/diya_4.jpeg",
+    category: "Diya",
+  },
+  {
+    name: "Diya 5",
+    tag: "diya5",
+    price: 30,
+    inCart: 0,
+    img: "images/diya_5.jpeg",
+    category: "Diya",
+  },
+  {
+    name: "Samayi Diya",
+    tag: "samayiDiya",
+    price: 80,
+    inCart: 0,
+    img: "images/samayi_diya.jpeg",
+    category: "Diya",
+  },
+  {
+    name: "Tulsi Diya",
+    tag: "tulsiDiya",
+    price: 80,
+    inCart: 0,
+    img: "images/tulsi_diya.jpeg",
     category: "Diya",
   },
 ];
 
+(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+  const whatsappTooltip = $('.whatsapp[data-toggle="tooltip"]');
+  whatsappTooltip.tooltip("show");
+  setTimeout(() => {
+    whatsappTooltip.tooltip("hide");
+  }, 4000);
+})();
+
 for (let i = 0; i < carts.length; i++) {
   carts[i].addEventListener("click", () => {
     const index = $(carts[i]).data("index");
-    console.log(index);
-    setItems(products[index]);
+    const inCart = +$(".units")[i].value || 1;
+    console.log(index, inCart);
+    setItems(products[index], inCart);
     cartNumbers(products[index]);
     totalCost(products[index]);
   });
@@ -188,7 +222,7 @@ function cartNumbers() {
   $(".cart span").html(productNumbers);
 }
 
-function setItems(product) {
+function setItems(product, units) {
   let cartItems = localStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
 
@@ -199,9 +233,9 @@ function setItems(product) {
         [product.tag]: product,
       };
     }
-    cartItems[product.tag].inCart += 1;
+    cartItems[product.tag].inCart = units;
   } else {
-    product.inCart = 1;
+    product.inCart = units;
     cartItems = {
       [product.tag]: product,
     };
@@ -214,6 +248,8 @@ function setItems(product) {
   }
 
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+
+  setUnits();
   alertBox("success");
 }
 
@@ -362,13 +398,17 @@ function displayCart() {
           </td>
           <td>
             <div class="quantity row">
-                <button  class="col removeItem btn btn-link px-1" data-key='${item.tag}'>
+                <button  class="col removeItem btn btn-link px-1" data-key='${
+                  item.tag
+                }'>
                     <ion-icon name="remove-outline"></ion-icon>
                 </button>
                 <span class='col border border-primary px-1 py-2'>${
                   item.inCart
                 }</span>
-                <button  class="col addItem btn btn-link px-1" data-key='${item.tag}'>
+                <button  class="col addItem btn btn-link px-1" data-key='${
+                  item.tag
+                }'>
                     <ion-icon name="add-outline"></ion-icon>
                 </button>
             </div>
@@ -431,13 +471,48 @@ function switchSize() {
       $(`.product-price-${btnName}`).html(`Rs. ${price}`);
 
       const isFiftyGm = +grams === 50;
-      console.log(`.${btnName}-${isFiftyGm ? "250" : "50"}`, btn);
       $(`.${btnName}-${isFiftyGm ? "250" : "50"}`)
         .parent()
         .hide();
       $(`.${btn}`).parent().show();
     });
+
+  setUnits();
 }
 
 switchSize();
-// end of file
+
+function setUnits() {
+  $(".units").map(function (unitInput) {
+    const tag = $(".units").eq(unitInput).data("tag");
+    const cartItems = JSON.parse(
+      localStorage.getItem("productsInCart") || "{}"
+    );
+
+    if (!cartItems[tag]) return $(this).val("");
+    const unit = cartItems[tag].inCart;
+    console.log(cartItems[tag], unit);
+    $(this).val(unit);
+  });
+}
+
+setUnits();
+
+function setSideBar() {
+  if ($(window).width() < 500) {
+    $(".product-sidebar").removeClass("flex-column");
+    $(".main-body").removeClass("ml-2");
+    $(".product-sidebar").css("width", "100%");
+    $(".product-sidebar").parent().addClass("ml-4");
+  } else {
+    $(".product-sidebar").parent().removeClass("ml-4");
+    $(".product-sidebar").addClass("flex-column");
+    $(".main-body").addClass("ml-2");
+    $(".product-sidebar").css("width", "auto");
+  }
+}
+
+setSideBar();
+$(window).resize(function () {
+  setSideBar();
+});
