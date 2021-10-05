@@ -84,6 +84,8 @@ textarea,
   display: inline-block;
   color: #000;
   text-decoration: none;
+  width: max-content;
+  padding: 2px 5px;
 }
 
 .cool-link::after {
@@ -113,9 +115,9 @@ hr {
 .active-link {
   -webkit-transition: box-shadow 0.5s 0s ease-in-out;
   transition: background-color 1s ease-in-out;
-  background-color: orange;
-  padding: 10px;
-  border-radius: 20px;
+  background-color: #d5c3da;
+  border-radius: 10px;
+  padding: 2px 5px;
 }
 
 .btn-text {
@@ -345,7 +347,7 @@ input[type='radio'] + label{
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgb(230, 230, 230);
-  border: 5px solid gray;
+  border: 5px solid rgb(255, 73, 73);
   border-radius: 50%;
   z-index: -1;
   animation: glowUp 4s infinite;
@@ -636,7 +638,7 @@ form label{
 
 /* footer */
 .footer{
-  background-color: #c45eff;
+  background-color: #d5c3da;
 }
 
 .footer .bg{
@@ -665,3 +667,10 @@ form label{
   }
 }
 
+
+
+label.form-check-label:hover{
+  border-radius: 50%;
+  background-color: #d5c3da;
+  cursor: pointer;
+}
