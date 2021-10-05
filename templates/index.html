@@ -82,7 +82,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{ url_for('templates',filename='index.html') }}">
               <img
                 lazy-loading="true"
                 class="resp_logo"
@@ -141,7 +141,7 @@
               <li class="nav-item ml-3 cart">
                 <a
                   class="nav-link px-1 cart-icon"
-                  href="cart.html"
+                  href="{{ url_for('templates',filename='cart.html') }}"
                   name="basket"
                   ><span class="fa fa-shopping-cart fa-2x"></span
                 ></a>
@@ -2131,7 +2131,7 @@
         }
       });
     </script>
-
-    <script src="main.js"></script>
+    
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
   </body>
 </html>
