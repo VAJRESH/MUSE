@@ -44,8 +44,9 @@
     />
 
     <!--Local Files-->
-    <link rel="stylesheet" href="muse.css" />
-    <script src="muse.js"></script>
+    <link rel= "stylesheet" type= "text/css" href = "{{ url_for('static',filename='css/muse.css') }}">
+    <script src="{{url_for('static', filename='js/muse.js')}}"></script>
+    
   </head>
   <body>
     <!-- Alert Component -->
