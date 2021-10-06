@@ -81,11 +81,11 @@
       <div class="container">
         <div class="row">
           <div class="col-sm">
-            <a class="navbar-brand" href="{{ url_for("DisplayProductOrderForm") }}">
+            <a class="navbar-brand" href="{{ url_for('DisplayProductOrderForm') }}">
               <img
                 lazy-loading="true"
                 class="resp_logo"
-                src="images/header_logo.png"
+                src="{{ url_for('static', filename='images/header_logo.png') }}"
                 class="img-fluid"
                 width="250"
               />
@@ -172,7 +172,7 @@
           <img
             lazy-loading="true"
             class="d-block w-100 respSlider"
-            src="images/banner_1.JPG"
+            src="{{ url_for('static', filename='images/banner_1.JPG') }}"
             alt="First slide"
           />
         </div>
@@ -180,7 +180,7 @@
           <img
             lazy-loading="true"
             class="d-block w-100 respSlider"
-            src="images/banner_2.jpg"
+            src="{{ url_for('static', filename='images/banner_2.jpg') }}"
             alt="Second slide"
           />
         </div>
@@ -188,7 +188,7 @@
           <img
             lazy-loading="true"
             class="d-block w-100 respSlider"
-            src="images/banner_3.jpg"
+            src="{{ url_for('static', filename='images/banner_3.jpg') }}"
             alt="Third slide"
           />
         </div>
@@ -263,7 +263,7 @@
                         <!-- image src update -->
                         <img
                           lazy-loading="true"
-                          src="images/gulab.jpeg"
+                          src="{{ url_for('static', filename='images/gulab.jpeg') }}"
                           class="card-img"
                           alt="..."
                           height="70%"
@@ -402,7 +402,7 @@
                         <!-- image src update -->
                         <img
                           lazy-loading="true"
-                          src="images/kevada.jpeg"
+                          src="{{ url_for('static', filename='images/kevada.jpeg') }}"
                           class="card-img"
                           alt="..."
                           height="70%"
@@ -542,7 +542,7 @@
                         <!-- image src update -->
                         <img
                           lazy-loading="true"
-                          src="images/chandan.jpeg"
+                          src="{{ url_for('static', filename='images/chandan.jpeg') }}"
                           class="card-img"
                           alt="..."
                           height="70%"
@@ -694,7 +694,7 @@
                         <!-- image src update -->
                         <img
                           lazy-loading="true"
-                          src="images/sonchafa.jpeg"
+                          src="{{ url_for('static', filename='images/sonchafa.jpeg') }}"
                           class="card-img"
                           alt="..."
                           height="70%"
@@ -839,7 +839,7 @@
                         <!-- image src update -->
                         <img
                           lazy-loading="true"
-                          src="images/mogra.jpeg"
+                          src="{{ url_for('static', filename='images/mogra.jpeg') }}"
                           class="card-img"
                           alt="..."
                           height="70%"
@@ -979,7 +979,7 @@
                         <!-- image src update -->
                         <img
                           lazy-loading="true"
-                          src="images/panadi.jpeg"
+                          src="{{ url_for('static', filename='images/panadi.jpeg') }}"
                           class="card-img"
                           alt="..."
                           height="70%"
@@ -1125,7 +1125,7 @@
                         <!-- image src update -->
                         <img
                           lazy-loading="true"
-                          src="images/parijatak.jpeg"
+                          src="{{ url_for('static', filename='images/parijatak.jpeg') }}"
                           class="card-img"
                           alt="..."
                           height="70%"
@@ -2586,7 +2586,7 @@
             <img
               lazy-loading="true"
               class="resp_logo"
-              src="images/header_logo.png"
+              src="{{ url_for('static', filename='images/footer_logo.png') }}"
               class="img-fluid"
               width="250"
             />
