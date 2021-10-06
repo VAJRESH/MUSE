@@ -251,6 +251,7 @@ function setItems(product, units) {
 
   setUnits();
   alertBox("success");
+  
 }
 
 function alertBox(type) {
@@ -319,13 +320,14 @@ function totalCost(product) {
   // console.log("Price is",product.price);
   let cartCost = localStorage.getItem("totalCost");
 
-  if (cartCost != null) {
-    cartCost = parseInt(cartCost);
+  if (cartCost) {
     localStorage.setItem("totalCost", cartCost + product.price);
   } else {
     localStorage.setItem("totalCost", product.price);
   }
 }
+
+
 
 function clearCart() {
   localStorage.clear();
@@ -516,3 +518,39 @@ setSideBar();
 $(window).resize(function () {
   setSideBar();
 });
+
+// Probable Solution to get the form data
+// const productData = JSON.parse(
+//       localStorage.getItem("productsInCart") || "{}"
+//     );
+
+// $.post( "/response", {
+//   javascript_data: {productData: 1} 
+// });
+
+// $.ajax({
+//   url: '{{ url_for("StoreDataToGSheet.response") }}',
+//   type: 'POST',
+//   data: {
+//     name: 1
+//   },
+//   success: function(response) {
+//     console.log(response)
+//   },
+//   error: function(response) {
+//     console.log(response)
+//   }
+// });
+
+const productData = JSON.parse(
+        localStorage.getItem("productsInCart") || "{}"
+      );
+ 
+let data = {}
+
+Object.values(productData).map((item) => {
+  data[item.tag] = item.inCart
+})
+
+$(".order_summary").val(JSON.stringify(data));
+console.log($(".order_summary").val())
