@@ -191,8 +191,10 @@
 
     <!--Form Elements-->
     <hr class="" />
-    <form class="container-fluid d-flex justify-content-center flex-column">
+    <form class="container-fluid d-flex justify-content-center flex-column" action="{{ url_for('StoreDataToGSheet')}}" method="post">
       <h3 class="text-center">Kindly fill the details to checkout!</h3>
+
+      <input type="text" value="" name="order_summary" class="order_summary" hidden/>
 
       <!--Personal Information-->
       <div class="personalInformation formCard p-3 mx-auto my-4 w-75">
@@ -210,7 +212,7 @@
                 placeholder="Enter your first name"
                 class="text"
                 id="text"
-                name="text"
+                name="first_name"
                 required
               />
             </div>
@@ -227,7 +229,7 @@
                 placeholder="Enter your last name"
                 class="text"
                 id="text"
-                name="text"
+                name="last_name"
                 required
               />
             </div>
@@ -500,7 +502,7 @@
       <div class="container col-lg-10 d-flex justify-content-center">
         <button
           type="submit"
-          class="btn btn-success registerbtn"
+          class="btn btn-success registerbtn submit_button"
           value="Submit"
         >
           Submit</button
@@ -616,6 +618,7 @@
 
     <!--Local Files-->
     <script defer src="{{url_for('static', filename='js/main.js')}}"></script>
+  
     
   </body>
 </html>
