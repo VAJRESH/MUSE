@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, request
 import pandas
 from datetime import datetime as dt
 import os
+import json
 from helper_functions import TriggerOrderReceivedMessage, getWorksheetObject
 
 app = Flask(__name__)
@@ -11,7 +12,7 @@ def DisplayProductOrderForm():
     return render_template('index.html')
 
 # function to render the order summary cart
-@app.route('/cart', methods=['GET', 'POST'])
+@app.route('/cart', methods=['GET', "POST"])
 def DisplayCart():
     return render_template('cart.html')
 
@@ -58,75 +59,126 @@ def DisplayCart():
 
 @app.route('/response', methods=['GET', 'POST'])
 def StoreDataToGSheet():
-    first_name = request.form.get('first_name')
-    last_name = request.form.get('last_name')
 
-    mogra_units_50_gm = int(request.form.get('mogra_units_50_gm')) if request.form.get('mogra_units_50_gm') != "" else 0
-    mogra_units_250_gm = int(request.form.get('mogra_units_250_gm')) if request.form.get('mogra_units_250_gm') != "" else 0
+    if request.method == "POST":
+        
+        first_name = request.form.get('first_name')
+        last_name = request.form.get('last_name')
 
-    sonchafa_units_50_gm = int(request.form.get('sonchafa_units_50_gm')) if request.form.get('sonchafa_units_50_gm') != "" else 0
-    sonchafa_units_250_gm = int(request.form.get('sonchafa_units_250_gm')) if request.form.get('sonchafa_units_250_gm') != "" else 0
+        mobile_number = request.form.get('mobile_number')
+        email_address = request.form.get('email_address')
 
-    gulab_units_50_gm = int(request.form.get('gulab_units_50_gm')) if request.form.get('gulab_units_50_gm') != "" else 0
-    gulab_units_250_gm = int(request.form.get('gulab_units_250_gm')) if request.form.get('gulab_units_250_gm') != "" else 0
+        city = request.form.get('city')
+        pincode = request.form.get('pincode')
 
-    utna_small = int(request.form.get('utna_small')) if request.form.get('utna_small') != "" else 0
-    utna_medium = int(request.form.get('utna_medium')) if request.form.get('utna_medium') != "" else 0
-    utna_large = int(request.form.get('utna_large')) if request.form.get('utna_large') != "" else 0
+        home_delivery_option = request.form.get('shipping_option')
+        address_line_1 = request.form.get('address_line_1') if home_delivery_option == "YES" else "NA"
+        address_line_2 = request.form.get('address_line_2') if home_delivery_option == "YES" else "NA"
+        landmark = request.form.get('landmark') if home_delivery_option == "YES" else "NA"
+        
+        payment_mode_choice = request.form.get('payment_mode_choice')
+        transaction_id = request.form.get('transaction_id') if payment_mode_choice == "NEFT" else "NA"
+        
+        reference = request.form.get('reference')
+        volunteer_name = request.form.get('volunteer_name') if reference == "VSM Volunteer" else "NA"
+        other_reference_source = request.form.get('other_reference_source') if reference == "Other" else "NA"
 
-    mobile_number = request.form.get('mobile_number')
-    email_address = request.form.get('email_address')
-    
-    home_delivery_option = request.form.get('home_delivery_option')
-    shipping_address = request.form.get('shipping_address') if home_delivery_option == "Yes" else "No Home Delivery Opted"
-    
-    city = request.form.get('city')
-    pincode = request.form.get('pincode')
+        # get the order details from an AJAX call in JSON format    
+        order = request.form.get('order_summary')
 
-    mode_of_payment = request.form.get('mode_of_payment')
+        # parse the string into a python dictionary    
+        order_dict = json.loads(order)
 
-    total_amount = (mogra_units_50_gm + gulab_units_50_gm + sonchafa_units_50_gm)*20 + (mogra_units_250_gm + gulab_units_250_gm + sonchafa_units_250_gm)*100
-    total_amount = total_amount if total_amount != None else 0
+        # get all the products present in the order_dict into a set
+        ordered_products = set(order_dict.keys())
+        
+        # define a set of all the products available in the system
+        total_products = {
+            'gulabAgarbatti50gm',
+            'gulabAgarbatti250gm',
+            'kevadaAgarbatti50gm',
+            'kevadaAgarbatti250gm',
+            'chandanAgarbatti50gm',
+            'chandanAgarbatti250gm',
+            'sonchafaAgarbatti50gm',
+            'sonchafaAgarbatti250gm',
+            'mograAgarbatti50gm',
+            'mograAgarbatti250gm',
+            'panadiAgarbatti50gm',
+            'panadiAgarbatti250gm',
+            'parijatakAgarbatti50gm',
+            'parijatakAgarbatti250gm',
+            'ubtan15gm',
+            'ubtan100gm',
+            'ubtan250gm',
+            'diya1',
+            'diya2',
+            'diya3',
+            'diya4', 
+            'diya5',
+            'samayiDiya',
+            'tulsiDiya'
+        }
 
-    # get a connection object to the MUSE product order sheet
-    wks = getWorksheetObject("MUSE Product Order Form", "Sheet1")
+        # get the product keys taht have not been ordered by the customer
+        unordered_products = total_products - ordered_products
 
-    current_length = wks.col_values(3).__len__()
+        # assign the units to unordered product keys as 0 in the order_dict
+        for key in unordered_products:
+            order_dict[key] = 0
 
-    order_id = "MUSE"+str(current_length+1)
+        print(order_dict)
 
-    shipping_address = shipping_address if home_delivery_option == "Yes" else "NA"
-    
-    wks.update('A'+str(current_length+1), order_id)
-    wks.update('B'+str(current_length+1), str(dt.now()))
-    wks.update('C'+str(current_length+1), gulab_units_50_gm)
-    wks.update('D'+str(current_length+1), gulab_units_250_gm)
-    wks.update('E'+str(current_length+1), sonchafa_units_50_gm)
-    wks.update('F'+str(current_length+1), sonchafa_units_250_gm)
-    wks.update('G'+str(current_length+1), mogra_units_50_gm)
-    wks.update('H'+str(current_length+1), mogra_units_250_gm)
-    wks.update('I'+str(current_length+1), utna_small)
-    wks.update('J'+str(current_length+1), utna_medium)
-    wks.update('K'+str(current_length+1), utna_large)
-    wks.update('L'+str(current_length+1), total_amount)
-    wks.update('M'+str(current_length+1), first_name)
-    wks.update('N'+str(current_length+1), last_name)
-    wks.update('O'+str(current_length+1), mobile_number)
-    wks.update('P'+str(current_length+1), email_address)
-    wks.update('Q'+str(current_length+1), home_delivery_option)
-    wks.update('R'+str(current_length+1), shipping_address)
-    wks.update('S'+str(current_length+1), city)
-    wks.update('T'+str(current_length+1), pincode)
-    wks.update('U'+str(current_length+1), mode_of_payment)
-    wks.update('V'+str(current_length+1), reference)
-    wks.update('W'+str(current_length+1), referee_volunteer)
-    wks.update('X'+str(current_length+1), other_source_of_reference)
-    wks.update('Y'+str(current_length+1), transaction_id)
+        # get a connection object to the MUSE product order sheet
+        wks = getWorksheetObject("MUSE Product Order Form", "Sheet1")
 
-    # print(TriggerOrderReceivedMessage(first_name, last_name, order_id, total_amount, mobile_number, email_address, "Acceptance in Progress", home_delivery_option, shipping_address))
-    
-    # TODO: add a response html template instead of a static message
-    return "Hurray! check the sheet"    
+        current_length = wks.col_values(3).__len__()
+
+        order_id = "MUSE"+str(current_length+1)
+        wks.update('A'+str(current_length+1), order_id)
+        wks.update('B'+str(current_length+1), str(dt.now().date()))
+        wks.update('C'+str(current_length+1), order_dict['gulabAgarbatti50gm'])
+        wks.update('D'+str(current_length+1), order_dict['gulabAgarbatti250gm'])
+        wks.update('E'+str(current_length+1), order_dict['sonchafaAgarbatti50gm'])
+        wks.update('F'+str(current_length+1), order_dict['sonchafaAgarbatti250gm'])
+        wks.update('G'+str(current_length+1), order_dict['panadiAgarbatti50gm'])
+        wks.update('H'+str(current_length+1), order_dict['panadiAgarbatti250gm'])
+        wks.update('I'+str(current_length+1), order_dict['kevadaAgarbatti50gm'])
+        wks.update('J'+str(current_length+1), order_dict['kevadaAgarbatti250gm'])
+        wks.update('K'+str(current_length+1), order_dict['chandanAgarbatti50gm'])
+        wks.update('L'+str(current_length+1), order_dict['chandanAgarbatti250gm'])
+        wks.update('M'+str(current_length+1), order_dict['parijatakAgarbatti50gm'])
+        wks.update('N'+str(current_length+1), order_dict['parijatakAgarbatti250gm'])
+        wks.update('O'+str(current_length+1), order_dict['mograAgarbatti50gm'])
+        wks.update('P'+str(current_length+1), order_dict['mograAgarbatti250gm'])
+        wks.update('Q'+str(current_length+1), order_dict['diya1'])
+        wks.update('R'+str(current_length+1), order_dict['samayiDiya'])
+        wks.update('S'+str(current_length+1), order_dict['tulsiDiya'])
+        # wks.update('T'+str(current_length+1), order_dict['vatiDiya'])
+        wks.update('U'+str(current_length+1), order_dict['ubtan15gm'])
+        wks.update('V'+str(current_length+1), order_dict['ubtan100gm'])
+        wks.update('W'+str(current_length+1), order_dict['ubtan250gm'])
+        # wks.update('X'+str(current_length+1), order_dict['order_total'])
+        wks.update('Y'+str(current_length+1), first_name)
+        wks.update('Z'+str(current_length+1), last_name)
+        wks.update('AA'+str(current_length+1), mobile_number)
+        wks.update('AB'+str(current_length+1), email_address)
+        wks.update('AC'+str(current_length+1), home_delivery_option)
+        wks.update('AD'+str(current_length+1), address_line_1)
+        wks.update('AE'+str(current_length+1), address_line_2)
+        wks.update('AF'+str(current_length+1), landmark)
+        wks.update('AG'+str(current_length+1), city)
+        wks.update('AH'+str(current_length+1), pincode)
+        wks.update('AI'+str(current_length+1), payment_mode_choice)
+        wks.update('AJ'+str(current_length+1), transaction_id)
+        wks.update('AK'+str(current_length+1), reference)
+        wks.update('AL'+str(current_length+1), volunteer_name)
+        wks.update('AM'+str(current_length+1), other_reference_source)
+
+        # print(TriggerOrderReceivedMessage(first_name, last_name, order_id, total_amount, mobile_number, email_address, "Acceptance in Progress", home_delivery_option, shipping_address))
+        
+        # TODO: add a response html template instead of a static message
+        return "Hurray! check the sheet"    
 
 if __name__ == '__main__':
     app.run() 
