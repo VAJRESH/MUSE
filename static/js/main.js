@@ -138,40 +138,8 @@ let products = [
     category: "Ubtan",
   },
   {
-    name: "Diya 1",
-    tag: "diya1",
-    price: 30,
-    inCart: 0,
-    img: "images/diya_1.jpeg",
-    category: "Diya",
-  },
-  {
-    name: "Diya 2",
-    tag: "diya2",
-    price: 30,
-    inCart: 0,
-    img: "images/diya_2.jpeg",
-    category: "Diya",
-  },
-  {
-    name: "Diya 3",
-    tag: "diya3",
-    price: 30,
-    inCart: 0,
-    img: "images/diya_3.jpeg",
-    category: "Diya",
-  },
-  {
-    name: "Diya 4",
-    tag: "diya4",
-    price: 30,
-    inCart: 0,
-    img: "images/diya_4.jpeg",
-    category: "Diya",
-  },
-  {
-    name: "Diya 5",
-    tag: "diya5",
+    name: "Small Diya",
+    tag: "smallDiya",
     price: 30,
     inCart: 0,
     img: "images/diya_5.jpeg",
@@ -193,6 +161,14 @@ let products = [
     img: "images/tulsi_diya.jpeg",
     category: "Diya",
   },
+  {
+    name: "Vati Diya",
+    tag: "vatiDiya",
+    price: 120,
+    inCart: 0,
+    img: "images/tulsi_diya.jpeg",
+    category: "Diya",
+  },
 ];
 
 (function () {
@@ -207,11 +183,16 @@ let products = [
 for (let i = 0; i < carts.length; i++) {
   carts[i].addEventListener("click", () => {
     const index = $(carts[i]).data("index");
-    const inCart = +$(".units")[i].value || 1;
-    console.log(index, inCart);
-    setItems(products[index], inCart);
-    cartNumbers(products[index]);
-    totalCost(products[index]);
+    const inCart = +$(".units")[i].value;
+    if(inCart && inCart > 0){
+      $(".units").eq(i).css('background-color','');
+      setItems(products[index], inCart);
+      cartNumbers(products[index]);
+      totalCost(products[index]);
+    } else {
+      $(".units").eq(i).css('background-color',"red");
+    }
+   
   });
 }
 
@@ -223,6 +204,7 @@ function cartNumbers() {
 }
 
 function setItems(product, units) {
+  
   let cartItems = localStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
 
@@ -318,13 +300,22 @@ function updateQuantity(product, quantity = 1) {
 
 function totalCost(product) {
   // console.log("Price is",product.price);
-  let cartCost = localStorage.getItem("totalCost");
+  // let cartCost =+localStorage.getItem("totalCost")||0;
 
-  if (cartCost) {
-    localStorage.setItem("totalCost", cartCost + product.price);
-  } else {
-    localStorage.setItem("totalCost", product.price);
-  }
+
+  // if (cartCost) {
+  //   localStorage.setItem("totalCost", cartCost + product.price);
+  // } else {
+  //   localStorage.setItem("totalCost", product.price);
+  // }
+  let cartItems = localStorage.getItem("productsInCart");
+
+  cartItems = JSON.parse(cartItems);
+  let totalCost = 0;
+  Object.values(cartItems).forEach((item) => {
+    totalCost += item.price * item.inCart;
+  });
+  localStorage.setItem("totalCost", totalCost);
 }
 
 
@@ -336,6 +327,7 @@ function clearCart() {
 
 function addItem() {
   $(".addItem").click(function (e) {
+    
     // update the quantity count
     const item = this.dataset.key;
     const cartItems = localStorage.getItem("productsInCart");
@@ -347,6 +339,8 @@ function addItem() {
     alertBox("success");
   });
 }
+
+
 
 function removeItem() {
   $(".removeItem").click(function (e) {
@@ -554,3 +548,7 @@ Object.values(productData).map((item) => {
 
 $(".order_summary").val(JSON.stringify(data));
 console.log($(".order_summary").val())
+
+// $('form').reset()
+console.log("123")
+

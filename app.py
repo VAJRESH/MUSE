@@ -178,7 +178,7 @@ def StoreDataToGSheet():
         # print(TriggerOrderReceivedMessage(first_name, last_name, order_id, total_amount, mobile_number, email_address, "Acceptance in Progress", home_delivery_option, shipping_address))
         
         # TODO: add a response html template instead of a static message
-        return "Hurray! check the sheet"    
-
+        # return "Hurray! check the sheet"    
+        return render_template('success.html')
 if __name__ == '__main__':
     app.run() 

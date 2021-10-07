@@ -75,18 +75,20 @@ $(document).ready(function () {
     $("#transactionid").slideUp();
   });
 
-  $(function () {
-    $("#mode").change(function () {
-      if ($(this).val() == 1) {
-        $("#nameVolunteer").show();
-        $("#other").hide();
-      } else if ($(this).val() == 5) {
-        $("#other").show();
-        $("#nameVolunteer").hide();
-      } else {
-        $("#nameVolunteer").hide();
-        $("#other").hide();
-      }
-    });
+  $("#mode").change(function () {
+    if ($(this).val() == 'VSM Volunteer') {
+      $("#nameVolunteer").show();
+      $("#other").hide();
+    } else if ($(this).val() == 'Other') {
+      $("#other").show();
+      $("#nameVolunteer").hide();
+    } else {
+      $("#nameVolunteer").hide();
+      $("#other").hide();
+    }
   });
+
+ 
 });
+
+
