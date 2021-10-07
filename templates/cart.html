@@ -303,7 +303,7 @@
               <input
                 type="number"
                 id="text"
-                name="text"
+                name="pincode"
                 placeholder="pincode"
                 required
               />
@@ -331,7 +331,7 @@
             <div class="col-sm d-flex justify-content-center">
               <label class="radio-btn"
                 ><b>YES</b>
-                <input type="radio" id="yes" name="shipping_option" value="Yes" />
+                <input type="radio" id="yes" name="shipping_option" value="YES" />
                 <span class="checkmark"></span>
               </label>
             </div>
@@ -339,7 +339,7 @@
             <div class="col-sm d-flex justify-content-center">
               <label class="radio-btn"
                 ><b>NO</b>
-                <input type="radio" id="no" name="shipping_option" value="No" checked />
+                <input type="radio" id="no" name="shipping_option" value="NO" checked />
                 <span class="checkmark"></span>
               </label>
             </div>
@@ -357,25 +357,27 @@
                   >*</span
                 ></label
               >
-              <textarea
+              <input
+                type="text"
                 rows="7"
                 cols="60"
-                class="shipReq shipForm"
+                class="text"
                 placeholder="Enter your shipping address"
                 name="address_line_1"
-              ></textarea>
+              ></input>
             </div>
             <div class="col-sm">
               <label class="d-flex justify-content-xs-center"
                 ><b>Address Line 2:</b></label
               >
-              <textarea
+              <input
+                type="text"
                 rows="7"
                 cols="60"
-                class="shipReq shipForm"
+                class="text"
                 placeholder="Enter your shipping address"
                 name="address_line_2"
-              ></textarea>
+              ></input>
             </div>
           </div>
           <div class="col-sm d-flex justify-content-center">
