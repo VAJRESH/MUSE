@@ -132,9 +132,11 @@ def StoreDataToGSheet():
         # get a connection object to the MUSE product order sheet
         wks = getWorksheetObject("MUSE Product Order Form", "Sheet1")
 
-        current_length = wks.col_values(3).__len__()
+        current_length = wks.col_values(16).__len__()
 
-        order_id = "MUSE"+str(current_length+1)
+        # generate a order id in the form of ordercountddmmyyyy where ddmmyyyy represents the date at which the order has been placed
+        order_id = str(current_length-2) + str(dt.now().date())[-2:] + str(dt.now().date())[5:7] + str(dt.now().date())[:4]
+        
         wks.update('A'+str(current_length+1), order_id)
         wks.update('B'+str(current_length+1), str(dt.now().date()))
         wks.update('C'+str(current_length+1), first_name)
@@ -178,7 +180,7 @@ def StoreDataToGSheet():
         # print(TriggerOrderReceivedMessage(first_name, last_name, order_id, total_amount, mobile_number, email_address, "Acceptance in Progress", home_delivery_option, shipping_address))
         
         # TODO: add a response html template instead of a static message
-        return "Hurray! check the sheet"    
+        return order_id    
 
 if __name__ == '__main__':
     app.run() 
