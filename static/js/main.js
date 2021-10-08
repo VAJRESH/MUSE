@@ -272,6 +272,9 @@ function removeItemFromList(product) {
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 
   localStorage.setItem("totalCost", totalCost);
+  
+  $(".order_total").val(total_cost);
+  console.log($(".order_total").val())
 
   alertBox("danger");
 }
@@ -296,11 +299,14 @@ function updateQuantity(product, quantity = 1) {
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 
   localStorage.setItem("totalCost", totalCost);
+  
+  $(".order_total").val(total_cost);
+  console.log($(".order_total").val())
 }
 
 function totalCost(product) {
   // console.log("Price is",product.price);
-  // let cartCost =+localStorage.getItem("totalCost")||0;
+  // let cartCost = +localStorage.getItem("totalCost")||0;
 
 
   // if (cartCost) {
