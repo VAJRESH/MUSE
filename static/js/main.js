@@ -311,13 +311,14 @@ function totalCost(product) {
   let cartItems = localStorage.getItem("productsInCart");
 
   cartItems = JSON.parse(cartItems);
-  let totalCost = 0;
+  let total_cost = 0;
   Object.values(cartItems).forEach((item) => {
-    totalCost += item.price * item.inCart;
+    total_cost += item.price * item.inCart;
   });
-  localStorage.setItem("totalCost", totalCost);
+  localStorage.setItem("totalCost", total_cost);
   
-  $(".order_total").val(totalCost);
+  $(".order_total").val(total_cost);
+  console.log($(".order_total").val())
 }
 
 
