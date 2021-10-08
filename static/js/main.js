@@ -434,7 +434,7 @@ function displayCart() {
   } else {
     const htmlStr = `
     <td colspan='4' class='text-center btn-link h5 p-4 bg-light'>
-      <a href="{{ url_for("DisplayProductOrderForm") }}">
+      <a href="https://muse-by-vivekanand-seva-mandal.herokuapp.com/">
       <span class='text-danger'>
         Go to the products page to add items to the cart
       </span>
