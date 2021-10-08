@@ -82,7 +82,10 @@ def StoreDataToGSheet():
         reference = request.form.get('reference')
         volunteer_name = request.form.get('volunteer_name') if reference == "VSM Volunteer" else "NA"
         other_reference_source = request.form.get('other_reference_source') if reference == "Other" else "NA"
-
+        
+        # get the order total
+        order_total = float(request.form.get('order_total'))
+        
         # get the order details from an AJAX call in JSON format    
         order = request.form.get('order_summary')
 
@@ -163,14 +166,14 @@ def StoreDataToGSheet():
         wks.update('AA'+str(current_length+1), order_dict['parijatakAgarbatti250gm'])
         wks.update('AB'+str(current_length+1), order_dict['mograAgarbatti50gm'])
         wks.update('AC'+str(current_length+1), order_dict['mograAgarbatti250gm'])
-        wks.update('AD'+str(current_length+1), order_dict['diya1'])
+        wks.update('AD'+str(current_length+1), order_dict['smallDiya'])
         wks.update('AE'+str(current_length+1), order_dict['samayiDiya'])
         wks.update('AF'+str(current_length+1), order_dict['tulsiDiya'])
         wks.update('AG'+str(current_length+1), order_dict['vatiDiya'])
         wks.update('AH'+str(current_length+1), order_dict['ubtan15gm'])
         wks.update('AI'+str(current_length+1), order_dict['ubtan100gm'])
         wks.update('AJ'+str(current_length+1), order_dict['ubtan250gm'])
-        wks.update('Ak'+str(current_length+1), order_dict['order_total'])
+        wks.update('AK'+str(current_length+1), order_dict['order_total'])
         wks.update('AL'+str(current_length+1), payment_mode_choice)
         wks.update('AM'+str(current_length+1), transaction_id)
        
