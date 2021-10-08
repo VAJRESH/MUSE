@@ -84,7 +84,7 @@ def StoreDataToGSheet():
         other_reference_source = request.form.get('other_reference_source') if reference == "Other" else "NA"
         
         # get the order total
-        order_total = float(request.form.get('order_total'))
+#         order_total = float(request.form.get('order_total'))
         
         # get the order details from an AJAX call in JSON format    
         order = request.form.get('order_summary')
@@ -128,7 +128,33 @@ def StoreDataToGSheet():
             order_dict[key] = 0
 
         print(order_dict)
+        
+        order_total = float(
+            order_dict['gulabAgarbatti50gm']*25 + 
+            order_dict['gulabAgarbatti250gm']*120 + 
+            order_dict['kevadaAgarbatti50gm']*25 + 
+            order_dict['kevadaAgarbatti250gm']*120 +
+            order_dict['chandanAgarbatti50gm']*25 + 
+            order_dict['chandanAgarbatti250gm']*120 +
+            order_dict['sonchafaAgarbatti50gm']*25 + 
+            order_dict['sonchafaAgarbatti250gm']*120 + 
+            order_dict['mograAgarbatti50gm']*25 + 
+            order_dict['mograAgarbatti250gm']*120 + 
+            order_dict['panadiAgarbatti50gm']*25 + 
+            order_dict['panadiAgarbatti250gm']*120 +
+            order_dict['parijatakAgarbatti50gm']*25 + 
+            order_dict['parijatakAgarbatti250gm']*120 + 
+            order_dict['smallDiya']*30 + 
+            order_dict['samayiDiya']*80 + 
+            order_dict['tulsiDiya']*80 + 
+            order_dict['vatiDiya']*120 +
+            order_dict['ubtan15gm']*10 + 
+            order_dict['ubtan100gm']*70 + 
+            order_dict['ubtan250gm']*160 
+        )
 
+        print(order_total)
+        
         # get a connection object to the MUSE product order sheet
         wks = getWorksheetObject("MUSE Product Order Form", "Automated Order")
 
@@ -174,7 +200,7 @@ def StoreDataToGSheet():
         wks.update('AI'+str(current_length+1), order_dict['ubtan15gm'])
         wks.update('AJ'+str(current_length+1), order_dict['ubtan100gm'])
         wks.update('AK'+str(current_length+1), order_dict['ubtan250gm'])
-        wks.update('AL'+str(current_length+1), order_dict['order_total'])
+        wks.update('AL'+str(current_length+1), order_total)
         wks.update('AM'+str(current_length+1), payment_mode_choice)
         wks.update('AN'+str(current_length+1), transaction_id)
        
