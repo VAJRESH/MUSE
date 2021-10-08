@@ -316,6 +316,8 @@ function totalCost(product) {
     totalCost += item.price * item.inCart;
   });
   localStorage.setItem("totalCost", totalCost);
+  
+  $(".order_total").val(totalCost);
 }
 
 
