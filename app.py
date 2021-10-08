@@ -180,7 +180,7 @@ def StoreDataToGSheet():
         # print(TriggerOrderReceivedMessage(first_name, last_name, order_id, total_amount, mobile_number, email_address, "Acceptance in Progress", home_delivery_option, shipping_address))
         
         # TODO: add a response html template instead of a static message
-        return order_id    
+        return render_template('success.html', order_id = order_id)    
 
 if __name__ == '__main__':
     app.run() 
