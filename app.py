@@ -82,6 +82,7 @@ def StoreDataToGSheet():
         reference = request.form.get('reference')
         volunteer_name = request.form.get('volunteer_name') if reference == "VSM Volunteer" else "NA"
         other_reference_source = request.form.get('other_reference_source') if reference == "Other" else "NA"
+        stall_name = request.form.get('stall_name') if reference == "Diwali Stalls" else "NA"
         
         # get the order total
 #         order_total = float(request.form.get('order_total'))
