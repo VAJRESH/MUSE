@@ -7,7 +7,7 @@ from helper_functions import TriggerOrderReceivedMessage, getWorksheetObject
 
 app = Flask(__name__)
 
-@app.route('/home', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def DisplayProductOrderForm():
     return render_template('index.html')
 
