@@ -130,7 +130,7 @@ def StoreDataToGSheet():
         print(order_dict)
 
         # get a connection object to the MUSE product order sheet
-        wks = getWorksheetObject("MUSE Product Order Form", "Sheet1")
+        wks = getWorksheetObject("MUSE Product Order Form", "Automated Order")
 
         current_length = wks.col_values(16).__len__()
 
