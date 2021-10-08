@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $(
-    "#mainubtanBlock, #paintedDiyaBlock, #soapBlock, #ship, #nameVolunteer, #other, #transactionid"
+    "#mainubtanBlock, #paintedDiyaBlock, #soapBlock, #ship, #nameVolunteer, #other, #transactionid, #DiwaliStall",
   ).hide();
 
   $("#agarbatti").click(function () {
@@ -61,34 +61,143 @@ $(document).ready(function () {
 
   $("#yes").click(function () {
     $("#ship").slideDown("slow");
+    $(".shipReq").attr("required", true);
   });
 
   $("#no").click(function () {
     $("#ship").slideUp();
+    $(".shipReq").attr("required", false);
   });
 
   $("#neft").click(function () {
     $("#transactionid").slideDown("slow");
+    $(".neftReq").attr("required", true);
   });
 
   $("#cash").click(function () {
     $("#transactionid").slideUp();
+    $(".neftReq").attr("required", false);
   });
+
+
 
   $("#mode").change(function () {
     if ($(this).val() == 'VSM Volunteer') {
       $("#nameVolunteer").show();
+      $('.volunteer-name').attr("required", true);
+      $('.others-req').attr("required", false);
+      $('.diwali-stalls').attr("required", false);
       $("#other").hide();
+      $("#DiwaliStall").hide();
     } else if ($(this).val() == 'Other') {
       $("#other").show();
+      $('.others-req').attr("required", true);
+      $('.volunteer-name').attr("required", false);
+      $('.diwali-stalls').attr("required", false);
       $("#nameVolunteer").hide();
+      $("#DiwaliStall").hide();
+    } else if ($(this).val() == 'Diwali Stalls'){
+      $("#DiwaliStall").show();
+      $('.diwali-stalls').attr("required", true);
+      $('.volunteer-name').attr("required", false);
+      $('.others-req').attr("required", false);
+      $("#nameVolunteer").hide();
+      $("#other").hide();
     } else {
       $("#nameVolunteer").hide();
       $("#other").hide();
+      $("#DiwaliStall").hide();
+      $('.volunteer-name').attr("required", false);
+      $('.others-req').attr("required", false);
+      $('.diwali-stalls').attr("required", false);
+
     }
   });
 
- 
+  $('.mobile-number').keyup( function() {
+    const value = $(this).val();
+    if(value.length > 10){
+      $(this).val(value.substr(0,10));
+      return;
+    }
+    if(value.length !== 10){
+      $(this).css("border","1px solid red");
+      $(".mobile-error").show();
+    } else {
+      $(this).css("border","");
+      $(".mobile-error").hide();
+    }
+  });
+
+
+  $('.pin-code').keyup( function() {
+    const value = $(this).val();
+    if(value.length > 6){
+      $(this).val(value.substr(0,6));
+      return;
+    }
+    if(value.length !== 6){
+      $(this).css("border","1px solid red");
+      $(".pin-code-error").show();
+    } else {
+      $(this).css("border","");
+      $(".pin-code-error").hide();
+    }
+  });
+  
+  $(".mobile-error").hide();
+  $(".pin-code-error").hide();
 });
+
+// function disabledSubmitButton(isValid){
+//   if(isValid.every(item => item)){
+//     $(".registerbtn").prop("disabled",true);
+//   } else {
+//     $(".registerbtn").prop("disabled",true);
+//   }
+// }
+
+// function validateForm(){
+//   let isValid = [false,false];
+//   disabledSubmitButton([false]);
+//   $('.mobile-number').keyup( function() {
+//     const value = $(this).val();
+//     disabledSubmitButton([false]);
+//     if(value.length > 10){
+//       $(this).val(value.substr(0,10));
+//       return;
+//     }
+//     if(value.length !== 10){
+//       $(this).css("border","1px solid red");
+//       isValid[1] = false;
+      
+//     } else {
+//       $(this).css("border","");
+//       isValid[1] = true;
+//     }
+//     disabledSubmitButton(isValid);
+//   });
+
+
+//   $('.pin-code').keyup( function() {
+//     const value = $(this).val();
+//     disabledSubmitButton([false]);
+//     if(value.length > 6){
+//       $(this).val(value.substr(0,6));
+//       return;
+//     }
+//     if(value.length !== 6){
+//       $(this).css("border","1px solid red");
+//       isValid[2] = false;
+//     } else {
+//       $(this).css("border","");
+//       isValid[2] = true;
+//     }
+//     disabledSubmitButton(isValid);
+//   });
+// }
+
+
+
 
 
