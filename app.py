@@ -111,13 +111,10 @@ def StoreDataToGSheet():
             'ubtan15gm',
             'ubtan100gm',
             'ubtan250gm',
-            'diya1',
-            'diya2',
-            'diya3',
-            'diya4', 
-            'diya5',
+            'smallDiya',
             'samayiDiya',
-            'tulsiDiya'
+            'tulsiDiya',
+            'vatiDiya'
         }
 
         # get the product keys taht have not been ordered by the customer
@@ -169,11 +166,11 @@ def StoreDataToGSheet():
         wks.update('AD'+str(current_length+1), order_dict['diya1'])
         wks.update('AE'+str(current_length+1), order_dict['samayiDiya'])
         wks.update('AF'+str(current_length+1), order_dict['tulsiDiya'])
-        # wks.update('AG'+str(current_length+1), order_dict['vatiDiya'])
+        wks.update('AG'+str(current_length+1), order_dict['vatiDiya'])
         wks.update('AH'+str(current_length+1), order_dict['ubtan15gm'])
         wks.update('AI'+str(current_length+1), order_dict['ubtan100gm'])
         wks.update('AJ'+str(current_length+1), order_dict['ubtan250gm'])
-        # wks.update('Ak'+str(current_length+1), order_dict['order_total'])
+        wks.update('Ak'+str(current_length+1), order_dict['order_total'])
         wks.update('AL'+str(current_length+1), payment_mode_choice)
         wks.update('AM'+str(current_length+1), transaction_id)
        
