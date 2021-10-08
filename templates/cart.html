@@ -131,7 +131,7 @@
                <li class="nav-item"><a class="nav-link main" href="#contact">Contact</a></li> -->
             <ul class="navbar-nav flex-row">
               <li class="nav-item">
-                <a class="nav-link px-1" href="https://m.facebook.com/musebyvsm/" target="_blank"
+                <a class="nav-link px-1" href="https://facebook.com/musebyvsm/" target="_blank"
                   ><span class="fa fa-facebook icon"></span
                 ></a>
               </li>
@@ -150,24 +150,32 @@
                   ><span class="fa fa-twitter icon"></span
                 ></a>
               </li>
-              <div class="text-center col-sm mt-1">
-                <button
-                  type="button"
-                  class="btn btn-danger text-center clear-cart-button"
-                  onclick="clearCart()"
-                >
-                  Clear Cart!
-                </button>
-              </div>
             </ul>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="text-right">
-      <a href="{{ url_for("DisplayProductOrderForm") }}" class="btn btn-secondary mt-3 mr-4">Back</a>
+    <div class="row col-lg m-0">
+      <div class="col">
+        <button
+          type="button"
+          class="btn btn-danger clear-cart-button mt-3 ml-2"
+          onclick="clearCart()"
+        >
+          Clear Cart!
+        </button>
+      </div>
+
+      <div class="col text-right">
+        <a href="{{ url_for("DisplayProductOrderForm") }}" class="btn btn-secondary mt-3 mr-2">Back</a>
+      </div>
     </div>
+    
+
+    <!-- <div class="text-right">
+      <a href="{{ url_for("DisplayProductOrderForm") }}" class="btn btn-secondary mt-3 mr-4">Back</a>
+    </div> -->
     <div class="container-fluid table-responsive text-center mt-4">
       <table
         class="products-container table mx-auto w-75"
@@ -249,10 +257,12 @@
               <input
                 type="number"
                 placeholder="Enter your mobile number"
+                class="mobile-number mb-0"
                 id="text"
                 name="mobile_number"
                 required
               />
+              <small class="text-danger mobile-error">Please enter valid mobile number!</small>
             </div>
 
             <div class="col-sm">
@@ -303,10 +313,12 @@
               <input
                 type="number"
                 id="text"
+                class="pin-code mb-0"
                 name="pincode"
                 placeholder="pincode"
                 required
               />
+              <small class="text-danger pin-code-error">Please enter valid pin code!</small>
             </div>
           </div>
         </div>
@@ -361,9 +373,10 @@
                 type="text"
                 rows="7"
                 cols="60"
-                class="text"
+                class="text shipReq"
                 placeholder="Enter your shipping address"
                 name="address_line_1"
+                
               ></input>
             </div>
             <div class="col-sm">
@@ -390,7 +403,7 @@
                   >*</span
                 ></label
               >
-              <input type="text" class="text shipForm" id="text" name="landmark" />
+              <input type="text" class="text shipForm shipReq" id="text" name="landmark" />
             </div>
             <!-- <div class="col-sm">
            <label class="d-flex justify-content-xs-center"><b>Address Line 2:</b></label>
@@ -430,6 +443,7 @@
                   type="radio"
                   name="payment_mode_choice"
                   placeholder="enter transaction id"
+                  class="neftReq"
                   id="neft"
                   value="NEFT"
                 />
@@ -472,6 +486,7 @@
                 <option value="Twitter">Twitter</option>
                 <option value="Instagram">Instagram</option>
                 <option value="VSM Volunteer" id="nameOfVolunteer">VSM Volunteer</option>
+                <option value="Diwali Stalls">Diwali Stalls</option>
                 <option value="Other">Other</option>
               </select>
             </div>
@@ -484,7 +499,7 @@
               >
               <input
                 type="text"
-                class="text"
+                class="text volunteer-name"
                 placeholder="volunteer name"
                 id="volunteerName"
                 name="volunteer_name"
@@ -499,9 +514,24 @@
               >
               <input
                 type="text"
-                class="text"
+                class="text others-req"
                 id="volunteerName"
                 placeholder="enter source"
+                name="other_reference_source"
+              />
+            </div>
+
+            <div class="col-sm" id="DiwaliStall">
+              <label class="d-flex justify-content-xs-center"
+                ><b>Please enter the name of the stall</b><span class="text-danger ml-1" style="font-weight: 700"
+                >*</span
+              ></label
+              >
+              <input
+                type="text"
+                class="text diwali-stalls"
+                id="stallName"
+                placeholder="Enter Stall Name"
                 name="other_reference_source"
               />
             </div>
@@ -554,7 +584,7 @@
             </a>
           </div>
           <div>
-            <a href="mailto:">
+            <a href="mailto:muse.vsm@gmail.com">
               <i class="fa fa-envelope bg"></i>
               <span class="pl-2"> muse@gmail.com </span>
             </a>
@@ -562,12 +592,12 @@
           <ul class="navbar-nav ml-auto mt-3">
             <ul class="navbar-nav flex-row">
               <li class="nav-item">
-                <a class="nav-link px-1" href="https://m.facebook.com/musebyvsm/" target="_blank"
+                <a class="nav-link px-1" href="https://facebook.com/musebyvsm/" target="_blank"
                   ><span class="fa fa-facebook icon"></span
                 ></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-1" href="" target="_blank"
+                <a class="nav-link px-1" href="mailto:muse.vsm@gmail.com" target="_blank"
                   ><span class="fa fa-envelope icon"></span
                 ></a>
               </li>
