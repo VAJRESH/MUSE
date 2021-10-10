@@ -272,9 +272,6 @@ function removeItemFromList(product) {
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 
   localStorage.setItem("totalCost", totalCost);
-  
-  $(".order_total").val(total_cost);
-  console.log($(".order_total").val())
 
   alertBox("danger");
 }
@@ -299,9 +296,6 @@ function updateQuantity(product, quantity = 1) {
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 
   localStorage.setItem("totalCost", totalCost);
-  
-  $(".order_total").val(total_cost);
-  console.log($(".order_total").val())
 }
 
 function totalCost(product) {
@@ -322,9 +316,6 @@ function totalCost(product) {
     total_cost += item.price * item.inCart;
   });
   localStorage.setItem("totalCost", total_cost);
-  
-  $(".order_total").val(total_cost);
-  console.log($(".order_total").val())
 }
 
 
