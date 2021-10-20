@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $(
-    "#mainubtanBlock, #paintedDiyaBlock, #soapBlock, #ship, #nameVolunteer, #other, #transactionid, #DiwaliStall",
+    "#mainubtanBlock, #paintedDiyaBlock, #soapBlock, #ship, #nameVolunteer, #other, #transactionid, #DiwaliStall, #giftHamperBlock",
   ).hide();
 
   $("#agarbatti").click(function () {
@@ -11,10 +11,12 @@ $(document).ready(function () {
     $("#mainubtanBlock").slideUp();
     $("#paintedDiyaBlock").slideUp();
     $("#soapBlock").slideUp();
+    $("#giftHamperBlock").slideUp();
 
     $("#ubtan").removeClass("active-link");
     $("#diya").removeClass("active-link");
     $("#soap").removeClass("active-link");
+    $("#gift-hamper").removeClass("active-link");
   });
 
   $("#ubtan").click(function () {
@@ -25,10 +27,12 @@ $(document).ready(function () {
     $("#mainAgarbattiBlock").slideUp();
     $("#paintedDiyaBlock").slideUp();
     $("#soapBlock").slideUp();
+    $("#giftHamperBlock").slideUp();
 
     $("#agarbatti").removeClass("active-link");
     $("#diya").removeClass("active-link");
     $("#soap").removeClass("active-link");
+    $("#gift-hamper").removeClass("active-link");
   });
 
   $("#diya").click(function () {
@@ -39,10 +43,12 @@ $(document).ready(function () {
     $("#mainAgarbattiBlock").slideUp();
     $("#mainubtanBlock").slideUp();
     $("#soapBlock").slideUp();
+    $("#giftHamperBlock").slideUp();
 
     $("#agarbatti").removeClass("active-link");
     $("#ubtan").removeClass("active-link");
     $("#soap").removeClass("active-link");
+    $("#gift-hamper").removeClass("active-link");
   });
 
   $("#soap").click(function () {
@@ -53,10 +59,28 @@ $(document).ready(function () {
     $("#mainAgarbattiBlock").slideUp();
     $("#mainubtanBlock").slideUp();
     $("#paintedDiyaBlock").slideUp();
+    $("#giftHamperBlock").slideUp();
 
     $("#agarbatti").removeClass("active-link");
     $("#ubtan").removeClass("active-link");
     $("#diya").removeClass("active-link");
+    $("#gift-hamper").removeClass("active-link");
+  });
+
+  $("#gift-hamper").click(function () {
+    if ($(this).hasClass('active-link')) return;
+    $("#giftHamperBlock").slideToggle();
+    $("#gift-hamper").toggleClass("active-link");
+
+    $("#mainAgarbattiBlock").slideUp();
+    $("#mainubtanBlock").slideUp();
+    $("#paintedDiyaBlock").slideUp();
+    $("#soapBlock").slideUp();
+
+    $("#agarbatti").removeClass("active-link");
+    $("#ubtan").removeClass("active-link");
+    $("#diya").removeClass("active-link");
+    $("#soap").removeClass("active-link");
   });
 
   $("#yes").click(function () {

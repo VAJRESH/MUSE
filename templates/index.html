@@ -238,13 +238,20 @@
               >
                 Painted Diyas
               </a>
-              <!-- <a
+              <a
                 type="button"
                 class="cool-link"
                 id="soap"
               >
                 Soap
-              </a> -->
+              </a>
+              <a
+                type="button"
+                class="cool-link"
+                id="gift-hamper"
+              >
+                Gift Hamper
+              </a>
             </div>
           </div>
 
@@ -1993,83 +2000,96 @@
               <h2 class="text-center">Soap</h2>
               <div class="container-fluid">
                 <div class="row d-flex justify-content-center">
+                  <!-- Card 1 -->
                   <div class="mb-3 m-2 col-lg-3 col-md-4">
-                    <div class="card no-gutters">
+                    <div class="card no-gutters bg-light">
                       <div class="col-lg">
+                        <!-- image src update -->
                         <img
                           lazy-loading="true"
-                          src="images/gulab.jpeg"
+                          src="{{ url_for('static', filename='images/ubtanSoap.jpeg') }}"
                           class="card-img"
                           alt="..."
                           height="70%"
                           width="100%"
                         />
                       </div>
-                      <div class="col-lg-10 container">
-                        <div class="card-body">
-                          <h6 class="card-title text-center">ubtan</h6>
-                          <p class="card-text btn-text text-center">
-                            Price: 20Rs 50gm.100Rs 250gm
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9">Ayurvedic Ubtan Soap</span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-ubtanSoap
+                              "
+                            >
+                              Rs 90
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Ayurvedic Ubtan Soap                          
                           </p>
-                          <!--+ - Buttons-->
-                          <div class="m-1">
-                            <div class="row">
-                              <div class="col-sm">
-                                <p class="btn-text text-center">
-                                  <b>Add 50gm pack to cart!</b>
-                                </p>
-                                <!-- <div class="input-group">
-                                          <span class="input-group-prepend">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                  <span class="fa fa-minus"></span>
-                                              </button>
-                                          </span>
-                                          <input type="text" name="quant[1]" class="form-control input-number" id="gulabAgarbatti50Gm" oninput="cartgulabAgarbatti50Gm.value=gulabAgarbatti50Gm.value" value="0" min="0" max="150">
-                                          <span class="input-group-append">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[1]">
-                                                  <span class="fa fa-plus"></span>
-                                              </button>
-                                          </span>
-                                      </div> -->
-                                <div class="text-center">
-                                  <button
-                                    type="button"
-                                    class="btn btn-success m-1 add-cart"
-                                  >
-                                    Add to cart
-                                  </button>
-                                </div>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity (Units) / piece 100gm </h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="ubtanSoap"
+                                  type="radio"
+                                  name="ubtanSoap"
+                                  id="ubtanSoap"
+                                  value="90"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="ubtanSoap"
+                                  >1</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="ubtanSoap"
+                                  class="ubtanSoap mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
                               </div>
                             </div>
                           </div>
-
-                          <div class="m-1">
-                            <div class="row">
-                              <div class="col-sm">
-                                <p class="btn-text text-center">
-                                  <b>Add 250gm pack to cart!</b>
-                                </p>
-                                <!-- <div class="input-group">
-                                          <span class="input-group-prepend">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
-                                                  <span class="fa fa-minus"></span>
-                                              </button>
-                                          </span>
-                                          <input type="text" name="quant[2]" class="form-control input-number" value="0" min="0" max="150">
-                                          <span class="input-group-append">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" id="gulabAgarbatti250Gm" oninput="cartgulabAgarbatti250Gm.value=gulabAgarbatti250Gm.value" data-type="plus" data-field="quant[2]">
-                                                  <span class="fa fa-plus"></span>
-                                              </button>
-                                          </span>
-                                      </div> -->
-                                <div class="text-center">
-                                  <button
-                                    type="button"
-                                    class="btn btn-success m-1 add-cart"
-                                  >
-                                    Add to cart
-                                  </button>
-                                </div>
+                          <!--+ - Buttons-->
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="21"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    ubtanSoap diya
+                                  "
+                                >
+                                  Add to cart
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -2077,173 +2097,115 @@
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
 
+            <!--Gift Hamper Section Block-->
+            <div id="giftHamperBlock">
+              <h2 class="text-center">Gift Hamper</h2>
+              <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                  <!-- Card 1 -->
                   <div class="mb-3 m-2 col-lg-3 col-md-4">
-                    <div class="card no-gutters">
+                    <div class="card no-gutters bg-light">
                       <div class="col-lg">
+                        <!-- image src update -->
                         <img
                           lazy-loading="true"
-                          src="images/kevada.jpeg"
+                          src="{{ url_for('static', filename='images/giftHamper.jpeg') }}"
                           class="card-img"
                           alt="..."
                           height="70%"
                           width="100%"
                         />
                       </div>
-                      <div class="col-lg-10 container">
-                        <div class="card-body">
-                          <h6 class="card-title text-center">
-                            Kevada Agarbatti.
-                          </h6>
-                          <p class="card-text btn-text text-center">
-                            Price: 20Rs 50gm.100Rs 250gm
+                      <div class="col container">
+                        <div class="card-body px-2 pb-1">
+                          <h5 class="card-title row pb-0 mb-1">
+                            <!-- title update -->
+                            <span class="col-9">Diwali Gift Hamper</span>
+                            <!-- price -->
+                            <span
+                              class="
+                                col-3
+                                small
+                                product-price
+                                text-right
+                                product-price-giftHamper
+                              "
+                            >
+                              Rs 400
+                            </span>
+                          </h5>
+                          <!-- description -->
+                          <p class="card-text btn-text">
+                            Diwali gift hamper contains:
+
+                            1. Hand-painted terracotta diyas
+                            2. 2 packets of Ojas Ubtan
+                            3. 1 packet of Ojas Incense Sticks
+                            4. Ojas Ubtan Soap
+                            5. Abhyanga snaan coconut oil
+                            6. Rangoli
+                            7. Rangoli colors
+                            8. Rangoli stencil
+                            9. Cotton wicks (Diya Bati)                       
                           </p>
+                          <div class="mb-3 row">
+                            <div class="col">
+                              <h6>Quantity (Units)</h6>
+                              <div class="form-check form-check-inline">
+                                <input
+                                  class="form-check-input switch-size"
+                                  data-btn="giftHamper"
+                                  type="radio"
+                                  name="giftHamper"
+                                  id="giftHamper"
+                                  value="400"
+                                  checked
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="giftHamper"
+                                  >1</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col text-right">
+                              <h6>Units</h6>
+                              <div>
+                                <input
+                                  type="text"
+                                  data-tag="giftHamper"
+                                  class="giftHamper mt-1 text units"
+                                  placeholder="0"
+                                  style="width: 45px"
+                                />
+                              </div>
+                            </div>
+                          </div>
                           <!--+ - Buttons-->
-                          <div class="m-1">
-                            <div class="row">
-                              <div class="col-sm">
-                                <p class="btn-text text-center">
-                                  <b>Add 50gm pack to cart!</b>
-                                </p>
-                                <!-- <div class="input-group">
-                                          <span class="input-group-prepend">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[3]">
-                                                  <span class="fa fa-minus"></span>
-                                              </button>
-                                          </span>
-                                          <input type="text" name="quant[3]" class="form-control input-number" id="kevadaAgarbatti50Gm" oninput="cartkevadaAgarbatti50Gm.value=kevadaAgarbatti50Gm.value" value="0" min="0" max="150">
-                                          <span class="input-group-append">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[3]">
-                                                  <span class="fa fa-plus"></span>
-                                              </button>
-                                          </span>
-                                      </div> -->
-                                <div class="text-center">
-                                  <button
-                                    type="button"
-                                    class="btn btn-success m-1 add-cart"
-                                  >
-                                    Add to cart
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="m-1">
-                            <div class="row">
-                              <div class="col-sm">
-                                <p class="btn-text text-center">
-                                  <b>Add 250gm pack to cart!</b>
-                                </p>
-                                <!-- <div class="input-group">
-                                          <span class="input-group-prepend">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[4]">
-                                                  <span class="fa fa-minus"></span>
-                                              </button>
-                                          </span>
-                                          <input type="text" name="quant[4]" class="form-control input-number" id="kevadaAgarbatti250Gm" oninput="cartkevadaAgarbatti250Gm.value=kevadaAgarbatti250Gm.value" value="0" min="0" max="150">
-                                          <span class="input-group-append">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[4]">
-                                                  <span class="fa fa-plus"></span>
-                                              </button>
-                                          </span>
-                                      </div> -->
-                                <div class="text-center">
-                                  <button
-                                    type="button"
-                                    class="btn btn-success m-1 add-cart"
-                                  >
-                                    Add to cart
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="mb-3 m-2 col-lg-3 col-md-4">
-                    <div class="card no-gutters">
-                      <div class="col-lg">
-                        <img
-                          lazy-loading="true"
-                          src="images/chandan.jpeg"
-                          class="card-img"
-                          alt="..."
-                          height="70%"
-                          width="100%"
-                        />
-                      </div>
-                      <div class="col-lg-10 container">
-                        <div class="card-body">
-                          <h6 class="card-title text-center">
-                            Chandan Agarbatti.
-                          </h6>
-                          <p class="card-text btn-text text-center">
-                            Price: 20Rs 50gm.100Rs 250gm
-                          </p>
-                          <!--+ - Buttons-->
-                          <div class="m-1">
-                            <div class="row">
-                              <div class="col-sm">
-                                <p class="btn-text text-center">
-                                  <b>Add 50gm pack to cart!</b>
-                                </p>
-                                <!-- <div class="input-group">
-                                          <span class="input-group-prepend">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[5]">
-                                                  <span class="fa fa-minus"></span>
-                                              </button>
-                                          </span>
-                                          <input type="text" name="quant[5]" class="form-control input-number" id="chandanAgarbatti50Gm" oninput="cartchandanAgarbatti50Gm.value=chandanAgarbatti50Gm.value" value="0" min="0" max="150">
-                                          <span class="input-group-append">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[5]">
-                                                  <span class="fa fa-plus"></span>
-                                              </button>
-                                          </span>
-                                      </div> -->
-                                <div class="text-center">
-                                  <button
-                                    type="button"
-                                    class="btn btn-success m-1 add-cart"
-                                  >
-                                    Add to cart
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="m-1">
-                            <div class="row">
-                              <div class="col-sm">
-                                <p class="btn-text text-center">
-                                  <b>Add 250gm pack to cart!</b>
-                                </p>
-                                <!-- <div class="input-group">
-                                          <span class="input-group-prepend">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[6]">
-                                                  <span class="fa fa-minus"></span>
-                                              </button>
-                                          </span>
-                                          <input type="text" name="quant[6]" class="form-control input-number" id="chandanAgarbatti250Gm" oninput="cartchandanAgarbatti250Gm.value=chandanAgarbatti250Gm.value" value="0" min="0" max="150">
-                                          <span class="input-group-append">
-                                              <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[6]">
-                                                  <span class="fa fa-plus"></span>
-                                              </button>
-                                          </span>
-                                      </div> -->
-                                <div class="text-center">
-                                  <button
-                                    type="button"
-                                    class="btn btn-success m-1 add-cart"
-                                  >
-                                    Add to cart
-                                  </button>
-                                </div>
+                          <div class="row">
+                            <div class="col-11">
+                              <div class="text-center">
+                                <button
+                                  type="button"
+                                  data-index="22"
+                                  class="
+                                    btn
+                                    ml-3
+                                    mb-1
+                                    m-1
+                                    w-100
+                                    btn-lg
+                                    active
+                                    add-cart
+                                    giftHamper diya
+                                  "
+                                >
+                                  Add to cart
+                                </button>
                               </div>
                             </div>
                           </div>

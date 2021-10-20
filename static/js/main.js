@@ -169,6 +169,22 @@ let products = [
     img: "images/tulsi_diya.jpeg",
     category: "Diya",
   },
+  {
+    name: "Ubtan Soap",
+    tag: "ubtanSoap",
+    price: 90,
+    inCart: 0,
+    img: "images/ubtanSoap.jpeg",
+    category: "Soap",
+  },
+  {
+    name: "Diwali Gift Hamper",
+    tag: "giftHamper",
+    price: 400,
+    inCart: 0,
+    img: "images/giftHamper.jpeg",
+    category: "GiftHamper",
+  },
 ];
 
 (function () {
