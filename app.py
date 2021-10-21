@@ -118,7 +118,9 @@ def StoreDataToGSheet():
             'smallDiya',
             'samayiDiya',
             'tulsiDiya',
-            'vatiDiya'
+            'vatiDiya',
+            'ubtanSoap',
+            'giftHamper'
         }
 
         # get the product keys taht have not been ordered by the customer
@@ -151,7 +153,9 @@ def StoreDataToGSheet():
             order_dict['vatiDiya']*120 +
             order_dict['ubtan15gm']*10 + 
             order_dict['ubtan100gm']*70 + 
-            order_dict['ubtan250gm']*160 
+            order_dict['ubtan250gm']*160 +
+            order_dict['ubtanSoap']*90 + 
+            order_dict['giftHamper']*400
         )
 
         print(order_total)
@@ -201,9 +205,11 @@ def StoreDataToGSheet():
         wks.update('AI'+str(current_length+1), order_dict['ubtan15gm'])
         wks.update('AJ'+str(current_length+1), order_dict['ubtan100gm'])
         wks.update('AK'+str(current_length+1), order_dict['ubtan250gm'])
-        wks.update('AL'+str(current_length+1), order_total)
-        wks.update('AM'+str(current_length+1), payment_mode_choice)
-        wks.update('AN'+str(current_length+1), transaction_id)
+        wks.update('AL'+str(current_length+1), order_dict['ubtanSoap'])
+        wks.update('AM'+str(current_length+1), order_dict['giftHamper'])
+        wks.update('AN'+str(current_length+1), order_total)
+        wks.update('AO'+str(current_length+1), payment_mode_choice)
+        wks.update('AP'+str(current_length+1), transaction_id)
        
         # print(TriggerOrderReceivedMessage(first_name, last_name, order_id, total_amount, mobile_number, email_address, "Acceptance in Progress", home_delivery_option, shipping_address))
         
