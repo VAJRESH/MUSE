@@ -8,4 +8,4 @@ This is the online web platform to order products manufactured by the tribal sis
 4. After creating the virtual environment, activate it through the terminal with this command - ```path\to\virtual_environment_folder\Scripts\activate.bat```
 5. Once the virtual environment is activated, install the required packages using this command - ```pip install -r requirements.txt``` within the project folder
 6. This would install all the required dependencies 
-7. Once the dependencies have been installed, run the command ```python3 app.py``` to start the application
+7. Once the dependencies have been installed, run the command ```python3 app.py``` to start the application.
