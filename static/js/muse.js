@@ -4,7 +4,7 @@ $(document).ready(function () {
   ).hide();
 
   $("#agarbatti").click(function () {
-    if ($(this).hasClass('active-link')) return;
+    if ($(this).hasClass("active-link")) return;
     $("#mainAgarbattiBlock").slideToggle();
     $("#agarbatti").toggleClass("active-link");
 
@@ -20,7 +20,7 @@ $(document).ready(function () {
   });
 
   $("#ubtan").click(function () {
-    if ($(this).hasClass('active-link')) return;
+    if ($(this).hasClass("active-link")) return;
     $("#mainubtanBlock").slideToggle();
     $("#ubtan").toggleClass("active-link");
 
@@ -36,7 +36,7 @@ $(document).ready(function () {
   });
 
   $("#diya").click(function () {
-    if ($(this).hasClass('active-link')) return;
+    if ($(this).hasClass("active-link")) return;
     $("#paintedDiyaBlock").slideToggle();
     $("#diya").toggleClass("active-link");
 
@@ -52,7 +52,7 @@ $(document).ready(function () {
   });
 
   $("#soap").click(function () {
-    if ($(this).hasClass('active-link')) return;
+    if ($(this).hasClass("active-link")) return;
     $("#soapBlock").slideToggle();
     $("#soap").toggleClass("active-link");
 
@@ -68,7 +68,7 @@ $(document).ready(function () {
   });
 
   $("#gift-hamper").click(function () {
-    if ($(this).hasClass('active-link')) return;
+    if ($(this).hasClass("active-link")) return;
     $("#giftHamperBlock").slideToggle();
     $("#gift-hamper").toggleClass("active-link");
 
@@ -95,80 +95,78 @@ $(document).ready(function () {
 
   $("#neft").click(function () {
     $("#transactionid").slideDown("slow");
+    $("#isPaid").slideUp();
     $(".neftReq").attr("required", true);
   });
 
   $("#cash").click(function () {
+    $("#isPaid").slideDown("slow");
     $("#transactionid").slideUp();
     $(".neftReq").attr("required", false);
   });
 
-
-
   $("#mode").change(function () {
-    if ($(this).val() == 'VSM Volunteer') {
+    if ($(this).val() == "VSM Volunteer") {
       $("#nameVolunteer").show();
-      $('.volunteer-name').attr("required", true);
-      $('.others-req').attr("required", false);
-      $('.diwali-stalls').attr("required", false);
+      $(".volunteer-name").attr("required", true);
+      $(".others-req").attr("required", false);
+      $(".diwali-stalls").attr("required", false);
       $("#other").hide();
       $("#DiwaliStall").hide();
-    } else if ($(this).val() == 'Other') {
+    } else if ($(this).val() == "Other") {
       $("#other").show();
-      $('.others-req').attr("required", true);
-      $('.volunteer-name').attr("required", false);
-      $('.diwali-stalls').attr("required", false);
+      $(".others-req").attr("required", true);
+      $(".volunteer-name").attr("required", false);
+      $(".diwali-stalls").attr("required", false);
       $("#nameVolunteer").hide();
       $("#DiwaliStall").hide();
-    } else if ($(this).val() == 'Diwali Stalls'){
+    } else if ($(this).val() == "Diwali Stalls") {
       $("#DiwaliStall").show();
-      $('.diwali-stalls').attr("required", true);
-      $('.volunteer-name').attr("required", false);
-      $('.others-req').attr("required", false);
+      $(".diwali-stalls").attr("required", true);
+      $(".volunteer-name").attr("required", false);
+      $(".others-req").attr("required", false);
       $("#nameVolunteer").hide();
       $("#other").hide();
     } else {
       $("#nameVolunteer").hide();
       $("#other").hide();
       $("#DiwaliStall").hide();
-      $('.volunteer-name').attr("required", false);
-      $('.others-req').attr("required", false);
-      $('.diwali-stalls').attr("required", false);
-
+      $(".volunteer-name").attr("required", false);
+      $(".others-req").attr("required", false);
+      $(".diwali-stalls").attr("required", false);
     }
   });
 
-  $('.mobile-number').keyup( function() {
+  $(".mobile-number").keyup(function () {
     const value = $(this).val();
-    if(value.length > 10){
-      $(this).val(value.substr(0,10));
+    if (value.length > 10) {
+      $(this).val(value.substr(0, 10));
       return;
     }
-    if(value.length !== 10){
-      $(this).css("border","1px solid red");
+    if (value.length !== 10) {
+      $(this).css("border", "1px solid red");
       $(".mobile-error").show();
     } else {
-      $(this).css("border","");
+      $(this).css("border", "");
       $(".mobile-error").hide();
     }
   });
 
-
-  $('.pin-code').keyup( function() {
+  $(".pin-code").keyup(function () {
     const value = $(this).val();
-    if(value.length > 6){
-      $(this).val(value.substr(0,6));
+    if (value.length > 6) {
+      $(this).val(value.substr(0, 6));
       return;
     }
-    if(value.length !== 6){
-      $(this).css("border","1px solid red");
+    if (value.length !== 6) {
+      $(this).css("border", "1px solid red");
       $(".pin-code-error").show();
     } else {
-      $(this).css("border","");
+      $(this).css("border", "");
       $(".pin-code-error").hide();
     }
   });
-  
+
   $(".mobile-error").hide();
   $(".pin-code-error").hide();
 });
@@ -194,14 +192,13 @@ $(document).ready(function () {
 //     if(value.length !== 10){
 //       $(this).css("border","1px solid red");
 //       isValid[1] = false;
-      
+
 //     } else {
 //       $(this).css("border","");
 //       isValid[1] = true;
 //     }
 //     disabledSubmitButton(isValid);
 //   });
-
 
 //   $('.pin-code').keyup( function() {
 //     const value = $(this).val();
@@ -220,8 +217,3 @@ $(document).ready(function () {
 //     disabledSubmitButton(isValid);
 //   });
 // }
-
-
-
-
-
