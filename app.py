@@ -1,9 +1,7 @@
-from flask import Flask, render_template, url_for, request
-import pandas
-from datetime import datetime as dt
-import os
 import json
-from helper_functions import TriggerOrderReceivedMessage, getWorksheetObject
+from flask import Flask, render_template, request
+from datetime import datetime as dt
+from helper_functions import getWorksheetObject
 
 app = Flask(__name__)
 
@@ -75,9 +73,16 @@ def StoreDataToGSheet():
         address_line_1 = request.form.get('address_line_1') if home_delivery_option == "YES" else "NA"
         address_line_2 = request.form.get('address_line_2') if home_delivery_option == "YES" else "NA"
         landmark = request.form.get('landmark') if home_delivery_option == "YES" else "NA"
+        courier_charges = float(request.form.get('courier_charges') if home_delivery_option == "YES" else 0)
         
         payment_mode_choice = request.form.get('payment_mode_choice')
         transaction_id = request.form.get('transaction_id') if payment_mode_choice == "NEFT" else "NA"
+
+        if payment_mode_choice == "NEFT":
+            payment_status = "Paid"
+
+        elif payment_mode_choice.lower() == "cash":
+            payment_status = request.form.get('payment_status')
         
         reference = request.form.get('reference')
         volunteer_name = request.form.get('volunteer_name') if reference == "VSM Volunteer" else "NA"
@@ -155,14 +160,14 @@ def StoreDataToGSheet():
             order_dict['ubtan100gm']*70 + 
             order_dict['ubtan250gm']*160 +
             order_dict['ubtanSoap']*90 + 
-            order_dict['giftHamper']*400
+            order_dict['giftHamper']*400 +
+            courier_charges
         )
 
         print(order_total)
         
         # get a connection object to the MUSE product order sheet
-        wks = getWorksheetObject("Muse Product Order Form | 22-23", "Automated Order")
-
+        wks = getWorksheetObject("MUSE Product Order Form | 22-23", "Automated Order")
         current_length = wks.col_values(17).__len__()
 
         # generate a order id in the form of ordercountddmmyyyy where ddmmyyyy represents the date at which the order has been placed
@@ -207,9 +212,11 @@ def StoreDataToGSheet():
         wks.update('AK'+str(current_length+1), order_dict['ubtan250gm'])
         wks.update('AL'+str(current_length+1), order_dict['ubtanSoap'])
         wks.update('AM'+str(current_length+1), order_dict['giftHamper'])
-        wks.update('AN'+str(current_length+1), order_total)
-        wks.update('AO'+str(current_length+1), payment_mode_choice)
-        wks.update('AP'+str(current_length+1), transaction_id)
+        wks.update('AN'+str(current_length+1), courier_charges)
+        wks.update('AO'+str(current_length+1), order_total)
+        wks.update('AP'+str(current_length+1), payment_mode_choice)
+        wks.update('AQ'+str(current_length+1), transaction_id)
+        wks.update('AR'+str(current_length+1), payment_status)
        
         # print(TriggerOrderReceivedMessage(first_name, last_name, order_id, total_amount, mobile_number, email_address, "Acceptance in Progress", home_delivery_option, shipping_address))
         
