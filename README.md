@@ -1,5 +1,5 @@
 # MUSE-Online-Ordering-System
-This is the online web platform to order products manufactured by the tribal sisters under project MUSE
+This is the online web platform to order products manufactured by the tribal sisters under project MUSE, developed inhouse by VSM's tech team - ECC
 
 #### Steps to set up the repository to execute the project
 1. Download the code reposiroty on to the ```~/Desktop``` of your system
