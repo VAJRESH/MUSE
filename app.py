@@ -168,7 +168,6 @@ def StoreDataToGSheet():
         
         # get a connection object to the MUSE product order sheet
         wks = getWorksheetObject("MUSE Product Order Form | 22-23", "Automated Order")
-
         current_length = wks.col_values(17).__len__()
 
         # generate a order id in the form of ordercountddmmyyyy where ddmmyyyy represents the date at which the order has been placed
