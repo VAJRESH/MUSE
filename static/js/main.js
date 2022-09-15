@@ -389,7 +389,7 @@ function displayCart() {
           <td>
             <div class='row'>
               <div class="col-auto px-3">
-                <img lazy-loading='true' src="${item.img}" alt="${
+                <img lazy-loading='true' src="/static/${item.img}" alt="${
         item.name
       }" height='80px' width='80px'>
               </div>
