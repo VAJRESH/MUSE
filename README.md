@@ -1,7 +1,7 @@
 # MUSE-Online-Ordering-System
 This is the online web platform to order products manufactured by the tribal sisters under project MUSE
 
-#### Steps to set up the repository
+#### Steps to set up the repository to execute the project
 1. Download the code reposiroty on to the ```~/Desktop``` of your system
 2. Through command line, navigate in to the repository
 3. Create a python virtual environment using the command - ```python3 -m venv /path/to/the/code/folder/virtual_environment_name```
