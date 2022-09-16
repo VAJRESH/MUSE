@@ -73,7 +73,7 @@ def StoreDataToGSheet():
         address_line_1 = request.form.get('address_line_1') if home_delivery_option == "YES" else "NA"
         address_line_2 = request.form.get('address_line_2') if home_delivery_option == "YES" else "NA"
         landmark = request.form.get('landmark') if home_delivery_option == "YES" else "NA"
-        courier_charges = request.form.get('courier_charges') if home_delivery_option == "YES" else "NA"
+        courier_charges = float(request.form.get('courier_charges') if home_delivery_option == "YES" else 0)
         
         payment_mode_choice = request.form.get('payment_mode_choice')
         transaction_id = request.form.get('transaction_id') if payment_mode_choice == "NEFT" else "NA"
