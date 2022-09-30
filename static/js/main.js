@@ -138,6 +138,14 @@ let products = [
     category: "Ubtan",
   },
   {
+    name: "Patya",
+    tag: "patyaDiya",
+    price: 20,
+    inCart: 0,
+    img: "images/patya.jpeg",
+    category: "Diya",
+  },
+  {
     name: "Small Diya",
     tag: "smallDiya",
     price: 30,
@@ -200,15 +208,14 @@ for (let i = 0; i < carts.length; i++) {
   carts[i].addEventListener("click", () => {
     const index = $(carts[i]).data("index");
     const inCart = +$(".units")[i].value;
-    if(inCart && inCart > 0){
-      $(".units").eq(i).css('background-color','');
+    if (inCart && inCart > 0) {
+      $(".units").eq(i).css("background-color", "");
       setItems(products[index], inCart);
       cartNumbers(products[index]);
       totalCost(products[index]);
     } else {
-      $(".units").eq(i).css('background-color',"red");
+      $(".units").eq(i).css("background-color", "red");
     }
-   
   });
 }
 
@@ -220,7 +227,6 @@ function cartNumbers() {
 }
 
 function setItems(product, units) {
-  
   let cartItems = localStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
 
@@ -249,7 +255,6 @@ function setItems(product, units) {
 
   setUnits();
   alertBox("success");
-  
 }
 
 function alertBox(type) {
@@ -318,7 +323,6 @@ function totalCost(product) {
   // console.log("Price is",product.price);
   // let cartCost = +localStorage.getItem("totalCost")||0;
 
-
   // if (cartCost) {
   //   localStorage.setItem("totalCost", cartCost + product.price);
   // } else {
@@ -334,8 +338,6 @@ function totalCost(product) {
   localStorage.setItem("totalCost", total_cost);
 }
 
-
-
 function clearCart() {
   localStorage.clear();
   location.reload();
@@ -343,7 +345,6 @@ function clearCart() {
 
 function addItem() {
   $(".addItem").click(function (e) {
-    
     // update the quantity count
     const item = this.dataset.key;
     const cartItems = localStorage.getItem("productsInCart");
@@ -355,8 +356,6 @@ function addItem() {
     alertBox("success");
   });
 }
-
-
 
 function removeItem() {
   $(".removeItem").click(function (e) {
@@ -498,7 +497,7 @@ function setUnits() {
   $(".units").map(function (unitInput) {
     const tag = $(".units").eq(unitInput).data("tag");
     const cartItems = JSON.parse(
-      localStorage.getItem("productsInCart") || "{}"
+      localStorage.getItem("productsInCart") || "{}",
     );
 
     if (!cartItems[tag]) return $(this).val("");
@@ -535,7 +534,7 @@ $(window).resize(function () {
 //     );
 
 // $.post( "/response", {
-//   javascript_data: {productData: 1} 
+//   javascript_data: {productData: 1}
 // });
 
 // $.ajax({
@@ -552,19 +551,16 @@ $(window).resize(function () {
 //   }
 // });
 
-const productData = JSON.parse(
-        localStorage.getItem("productsInCart") || "{}"
-      );
- 
-let data = {}
+const productData = JSON.parse(localStorage.getItem("productsInCart") || "{}");
+
+let data = {};
 
 Object.values(productData).map((item) => {
-  data[item.tag] = item.inCart
-})
+  data[item.tag] = item.inCart;
+});
 
 $(".order_summary").val(JSON.stringify(data));
-console.log($(".order_summary").val())
+console.log($(".order_summary").val());
 
 // $('form').reset()
-console.log("123")
-
+console.log("123");
