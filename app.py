@@ -124,6 +124,7 @@ def StoreDataToGSheet():
             'samayiDiya',
             'tulsiDiya',
             'vatiDiya',
+            'patyaDiya',
             'ubtanSoap',
             'giftHamper'
         }
@@ -156,6 +157,7 @@ def StoreDataToGSheet():
             order_dict['samayiDiya']*80 + 
             order_dict['tulsiDiya']*80 + 
             order_dict['vatiDiya']*120 +
+            order_dict['patyaDiya']*20 +
             order_dict['ubtan15gm']*10 + 
             order_dict['ubtan100gm']*70 + 
             order_dict['ubtan250gm']*160 +
@@ -207,16 +209,17 @@ def StoreDataToGSheet():
         wks.update('AF'+str(current_length+1), order_dict['samayiDiya'])
         wks.update('AG'+str(current_length+1), order_dict['tulsiDiya'])
         wks.update('AH'+str(current_length+1), order_dict['vatiDiya'])
-        wks.update('AI'+str(current_length+1), order_dict['ubtan15gm'])
-        wks.update('AJ'+str(current_length+1), order_dict['ubtan100gm'])
-        wks.update('AK'+str(current_length+1), order_dict['ubtan250gm'])
-        wks.update('AL'+str(current_length+1), order_dict['ubtanSoap'])
-        wks.update('AM'+str(current_length+1), order_dict['giftHamper'])
-        wks.update('AN'+str(current_length+1), courier_charges)
-        wks.update('AO'+str(current_length+1), order_total)
-        wks.update('AP'+str(current_length+1), payment_mode_choice)
-        wks.update('AQ'+str(current_length+1), transaction_id)
-        wks.update('AR'+str(current_length+1), payment_status)
+        wks.update('AI'+str(current_length+1), order_dict['patyaDiya'])
+        wks.update('AJ'+str(current_length+1), order_dict['ubtan15gm'])
+        wks.update('AK'+str(current_length+1), order_dict['ubtan100gm'])
+        wks.update('AL'+str(current_length+1), order_dict['ubtan250gm'])
+        wks.update('AM'+str(current_length+1), order_dict['ubtanSoap'])
+        wks.update('AN'+str(current_length+1), order_dict['giftHamper'])
+        wks.update('AO'+str(current_length+1), courier_charges)
+        wks.update('AP'+str(current_length+1), order_total)
+        wks.update('AQ'+str(current_length+1), payment_mode_choice)
+        wks.update('AR'+str(current_length+1), transaction_id)
+        wks.update('AS'+str(current_length+1), payment_status)
        
         # print(TriggerOrderReceivedMessage(first_name, last_name, order_id, total_amount, mobile_number, email_address, "Acceptance in Progress", home_delivery_option, shipping_address))
         
