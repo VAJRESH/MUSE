@@ -138,14 +138,6 @@ let products = [
     category: "Ubtan",
   },
   {
-    name: "Patya",
-    tag: "patyaDiya",
-    price: 20,
-    inCart: 0,
-    img: "images/patya.jpeg",
-    category: "Diya",
-  },
-  {
     name: "Small Diya",
     tag: "smallDiya",
     price: 30,
@@ -192,6 +184,14 @@ let products = [
     inCart: 0,
     img: "images/giftHamper.jpeg",
     category: "GiftHamper",
+  },
+  {
+    name: "Patya",
+    tag: "patyaDiya",
+    price: 20,
+    inCart: 0,
+    img: "images/patya.jpeg",
+    category: "Diya",
   },
 ];
 
